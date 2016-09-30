@@ -1,5 +1,5 @@
 package com.obj.transf.datos.app.factibilidades;
 
-public class GenerarFactibilidadesRespuesta {
+public class GenerarFactibilidadRespuesta {
 
 }
