@@ -1,4 +1,4 @@
-package com.facadeservices.app.cuentasxcobrar;
+package com.facadeservices.app.cuentasporcobrar;
 
 import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroPeticion;
 import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroRespuesta;

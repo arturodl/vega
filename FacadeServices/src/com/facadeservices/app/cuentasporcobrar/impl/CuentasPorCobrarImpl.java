@@ -1,9 +1,9 @@
-package com.facadeservices.app.cuentasxcobrar.impl;
+package com.facadeservices.app.cuentasporcobrar.impl;
 
-import com.facadeservices.app.cuentasxcobrar.CuentasPorCobrar;
 import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroPeticion;
 import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroRespuesta;
 import com.businesservices.app.cuentasporcobrar.GenerarCobro;
+import com.facadeservices.app.cuentasporcobrar.CuentasPorCobrar;
 
 public class CuentasPorCobrarImpl implements CuentasPorCobrar {
 	

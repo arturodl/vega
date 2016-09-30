@@ -2,6 +2,27 @@
     <wb-module deploy-name="PrimefacesMCApp">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="FacadeServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/FacadeServices/FacadeServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OTD.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OTD/OTD">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BusinessServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/BusinessServices/BusinessServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Model/Model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DataServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DataServices/DataServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Common.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Common/Common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Core/Core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="PrimefacesMCApp"/>
         <property name="java-output-path" value="/PrimefacesMCApp/build/classes"/>
     </wb-module>

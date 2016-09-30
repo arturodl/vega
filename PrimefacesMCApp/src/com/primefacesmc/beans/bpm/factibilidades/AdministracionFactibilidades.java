@@ -2,7 +2,10 @@ package com.primefacesmc.beans.bpm.factibilidades;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+
+import com.facadeservices.app.factibilidades.Factibilidades;
 
 @ManagedBean(name="administracionFactibilidadesBean")
 @ViewScoped
@@ -10,7 +13,10 @@ import javax.faces.bean.ViewScoped;
 public class AdministracionFactibilidades {
     private String nombreUsuario;
     
-    @PostConstruct
+    @ManagedProperty(value="#{factibilidades}")
+    private Factibilidades factibilidades;
+    
+   	@PostConstruct
     public void inicializar(){
     	this.nombreUsuario = "Emilio Linares";
     }
@@ -21,5 +27,13 @@ public class AdministracionFactibilidades {
 
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
+	}
+	
+	public Factibilidades getFactibilidades() {
+		return factibilidades;
+	}
+
+	public void setFactibilidades(Factibilidades factibilidades) {
+		this.factibilidades = factibilidades;
 	}
 }

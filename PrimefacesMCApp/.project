@@ -3,6 +3,13 @@
 	<name>PrimefacesMCApp</name>
 	<comment></comment>
 	<projects>
+		<project>FacadeServices</project>
+		<project>OTD</project>
+		<project>BusinessServices</project>
+		<project>Model</project>
+		<project>DataServices</project>
+		<project>Common</project>
+		<project>Core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
