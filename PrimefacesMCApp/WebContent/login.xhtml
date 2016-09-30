@@ -18,8 +18,10 @@
     
     <h:body> 
     	<h:form id="formulario">
-    	  hola a todos
-    	  <h:commandButton id="btnIrOtraPagina" action="/WEB-INF/web/content/pantallas/Factibilidades/AdministracionFactibilidades.xhtml" value="Ir a otra pagina"  />
+    	  <h:outputLabel id="loginlblSaludo" value="hola a todos" /> 
+    	  <h:commandButton id="loginBtnEdoCuenta" action="/WEB-INF/web/content/pantallas/EstadoDeCuenta/EstadoDeCuenta.xhtml" value="Estado de Cuenta"  />
+    	  <h:commandButton id="loginBtnAdminFactibilidades" action="/WEB-INF/web/content/pantallas/Factibilidades/AdministracionFactibilidades.xhtml" value="Admin. Factibilidades"  />
+    	  <h:commandButton id="loginGenerarFactibilidades" action="/WEB-INF/web/content/pantallas/Facturacion/GenerarFacturacion.xhtml" value="Generar Facturacion"  />
     	</h:form>
     </h:body>
 </html>
