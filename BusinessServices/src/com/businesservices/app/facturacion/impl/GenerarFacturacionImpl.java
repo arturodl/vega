@@ -9,7 +9,12 @@ public class GenerarFacturacionImpl implements GenerarFacturacion {
 	@Override
 	public GenerarFacturacionRespuesta ejecutar(GenerarFacturacionPeticion peticion) {
 		// TODO Auto-generated method stub
-		return null;
+		GenerarFacturacionRespuesta respuesta = new GenerarFacturacionRespuesta();
+		respuesta.setIdUsuario(peticion.getIdUsuario());
+		respuesta.setNombreUsuario("Arturo Linares II");
+		respuesta.setIdPosicion(3);
+		respuesta.setPosicion("Layer");
+		return respuesta;
 	}
 
 }
