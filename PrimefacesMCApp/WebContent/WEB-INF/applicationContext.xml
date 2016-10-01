@@ -4,12 +4,20 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" 
 	default-lazy-init="true">
 	
+	<!--  contextos y definicion de beans para los data services -->
+	<import resource="context/ds/dsRH.xml"/>
+	
+	<!-- contextos y definicion de beans para los business services -->
 	<import resource="context/bs/bsCuentasPorCobrar.xml"/>
 	<import resource="context/bs/bsFactibilidades.xml"/>
 	<import resource="context/bs/bsFacturacion.xml"/>
 	
+	<!-- contextos y definicion de beans para los facade services -->
 	<import resource="context/fs/fsCuentasPorCobrar.xml"/>
 	<import resource="context/fs/fsFactibilidades.xml"/>
 	<import resource="context/fs/fsFacturacion.xml"/>
+	
+	<!-- definicion de beans, datasources y transaccionalidad -->
+	<import resource="context/txContext.xml"/>
 	
 </beans>

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateCore5.1.2"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateEntityManager5.1.2"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateJava8_5.1.2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Jsf2.2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringFramework4.3.3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
@@ -19,5 +16,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/Model"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateCore4.3.11"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateEntityManager4.3.11"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

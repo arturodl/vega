@@ -16,5 +16,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateCore4.3.11"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateEntityManager4.3.11"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
