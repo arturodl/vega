@@ -7,9 +7,9 @@ import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.facadeservices.app.facturacion.Facturacion;
 import com.obj.transf.datos.app.facturacion.GenerarFacturacionPeticion;
 import com.obj.transf.datos.app.facturacion.GenerarFacturacionRespuesta;
+import com.services.facade.app.facturacion.Facturacion;
 
 @ManagedBean(name="generarFacturacionBean")
 @ViewScoped

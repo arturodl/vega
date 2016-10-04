@@ -5,7 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import com.facadeservices.app.factibilidades.Factibilidades;
+import com.services.facade.app.factibilidades.Factibilidades;
 
 @ManagedBean(name="administracionFactibilidadesBean")
 @ViewScoped

@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" 
 	>
 	
-	<bean id="facturacion" class="com.facadeservices.app.facturacion.impl.FacturacionImpl">
+	<bean id="facturacion" class="com.services.facade.app.facturacion.impl.FacturacionImpl">
 		<property name="generarFacturacion" ref="generarFacturacion" />
 	</bean> 
  

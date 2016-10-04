@@ -11,9 +11,9 @@ import com.core.app.otd.ObtenerEntidadesPorCriterioPeticion;
 import com.core.app.otd.PeticionEntidad;
 import com.core.app.otd.RespuestaEntidad;
 import com.core.app.servicios.entidad.ServicioEntidad;
-import com.facadeservices.app.cuentasporcobrar.CuentasPorCobrar;
-import com.facadeservices.app.rh.Rh;
 import com.model.data.app.humanresources.Department;
+import com.services.facade.app.cuentasporcobrar.CuentasPorCobrar;
+import com.services.facade.app.rh.Rh;
 
 @ManagedBean(name="estadoDeCuentaBean")
 @ViewScoped
@@ -33,7 +33,7 @@ public class EstadoDeCuentaBean {
     	try{
     		PeticionEntidad peticion = new PeticionEntidad();
     		Department departamento = new Department();
-    		departamento.setName("Mineria de datos");
+    		departamento.setName("FrontEnd and BackEnd");
 			departamento.setGroupName("TI");
 			departamento.setModifiedDate(new Date());
 			peticion.setEntidad(departamento);

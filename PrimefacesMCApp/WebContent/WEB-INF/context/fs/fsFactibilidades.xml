@@ -5,7 +5,7 @@
 	>
 
     
-	<bean id="factibilidades" class="com.facadeservices.app.factibilidades.impl.FactibilidadesImpl">
+	<bean id="factibilidades" class="com.services.facade.app.factibilidades.impl.FactibilidadesImpl">
 		<property name="generarFactibilidad" ref="generarFactibilidad" />
 	</bean>
 	  
