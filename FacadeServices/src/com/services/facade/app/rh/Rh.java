@@ -1,8 +1,8 @@
 package com.services.facade.app.rh;
 
-import com.core.app.otd.PeticionEntidad;
-import com.core.app.otd.RespuestaEntidad;
+import com.obj.transf.datos.app.rh.CrearDepartamentoPeticion;
+import com.obj.transf.datos.app.rh.CrearDepartamentoRespuesta;
 
 public interface Rh {
-	public RespuestaEntidad crearDepartamento(PeticionEntidad peticion);
+	public CrearDepartamentoRespuesta crearDepartamento(CrearDepartamentoPeticion peticion);
 }

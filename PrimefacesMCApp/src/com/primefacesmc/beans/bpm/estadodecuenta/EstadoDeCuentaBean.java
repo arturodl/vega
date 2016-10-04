@@ -12,6 +12,7 @@ import com.core.app.otd.PeticionEntidad;
 import com.core.app.otd.RespuestaEntidad;
 import com.core.app.servicios.entidad.ServicioEntidad;
 import com.model.data.app.humanresources.Department;
+import com.obj.transf.datos.app.rh.CrearDepartamentoPeticion;
 import com.services.facade.app.cuentasporcobrar.CuentasPorCobrar;
 import com.services.facade.app.rh.Rh;
 
@@ -31,7 +32,7 @@ public class EstadoDeCuentaBean {
     	System.out.println("Inicializar estado de cuenta bean");
     	nombreUsuario = "Arturo Linares Rincon";
     	try{
-    		PeticionEntidad peticion = new PeticionEntidad();
+    		CrearDepartamentoPeticion peticion = new CrearDepartamentoPeticion();
     		Department departamento = new Department();
     		departamento.setName("FrontEnd and BackEnd");
 			departamento.setGroupName("TI");

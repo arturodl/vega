@@ -8,5 +8,4 @@ import com.services.data.app.rh.ObtenerDepartamentosPorCriterio;
 
 public interface CuentasPorCobrar{
     public GenerarCobroRespuesta GenerarCobro(GenerarCobroPeticion peticion);
-    public ObtenerEntidadesPorCriterioRespuesta obtenerDepartamentosPorCriterio(ObtenerEntidadesPorCriterioPeticion peticion);
 }
