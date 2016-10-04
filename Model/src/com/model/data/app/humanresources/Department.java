@@ -14,18 +14,24 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.core.app.modelo.Entidad;
 
 
-@Entity(name="Deparment")
-@Table(name="Deparment",schema="HumanResources")
+
+@Entity(name="Department")
+@Table(name="Department", schema="HumanResources")
 @Access(AccessType.FIELD)
-public class Department {
+public class Department extends Entidad{
 	
    @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY)
    @Column(name="DepartmentID")
    @Basic(optional=false)
    private Integer departmentID;
+   
+   @Column(name="DepartmentID", updatable = false, insertable = false)
+   @Basic(optional = false)
+   private Integer id;
    
    @Column(name="Name")
    @Basic(optional=true)
@@ -62,6 +68,22 @@ public class Department {
 
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 
   

@@ -8,15 +8,7 @@
 		   			       http://www.springframework.org/schema/aop 
 						   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	 									 
-	<bean id="obtenerDepartamentosPorCriterio" class="com.services.data.app.rh.impl.ObtenerDepartamentosPorCriterioImpl">
-		<property name="obtenerEntidadesPorCriterio" ref="obtenerEntidadesPorCriterio" />
-		<aop:scoped-proxy/>
-	</bean>
-	
-	<bean id="crearDepartamento" class="com.services.data.app.rh.impl.CrearDepartamentoImpl">
-		<property name="crearEntidad" ref="crearEntidad" />
-		<aop:scoped-proxy/>
-	</bean>
-	
-		  
+	   <bean id="rhFacade" class="com.facadeservices.app.rh.impl.RhImpl">
+	      	<property name="crearDepartamento" ref="crearDepartamento"/>
+	   </bean>		  
 </beans>

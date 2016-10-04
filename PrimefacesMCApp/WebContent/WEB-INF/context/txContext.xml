@@ -14,23 +14,69 @@
    
    <jee:jndi-lookup id="DSAdventureWorks2014" jndi-name="jdbc/DSAdventureWorks" ></jee:jndi-lookup>
    
-   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-   		<property name="entityManagerFactory" ref="entityManagerFactory" />
-   </bean>
+   <aop:aspectj-autoproxy proxy-target-class="true"/>
+   
+   <bean id="transactionManager"
+    	class="org.springframework.orm.jpa.JpaTransactionManager" >   
+    	<property name="entityManagerFactory" ref="entityManagerFactory" />  
+   </bean> 
+   
+   <!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
    
    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
       <property name="dataSource" ref="DSAdventureWorks2014"/>
       <property name="persistenceUnitName" value="Model" />   
 	  <property name="jpaProperties">
           <props>
-            <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+            <!--  <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop> -->
             <prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.SunONETransactionManagerLookup</prop>
           </props>
       </property>    
-    </bean>
+   </bean>
     
-    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean" >
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>
+   <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean" >
+      <property name="entityManagerFactory" ref="entityManagerFactory" />
+   </bean>
+   
+   <tx:advice id="txTransaccional" transaction-manager="transactionManager" >
+       <tx:attributes>
+         <tx:method name="ejecutar*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Throwable"/>
+       </tx:attributes>
+   </tx:advice>
+   
+   <tx:advice id="txCRUD" transaction-manager="transactionManager" >
+       <tx:attributes>
+         <tx:method name="ejecutar*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Throwable"/>
+       </tx:attributes>
+   </tx:advice>
+   
+   <aop:config> 
+     <aop:pointcut id="serviciosDatos" expression="execution (* com.services.data.app.rh.impl.*.*(..)) "/>
+     <aop:pointcut id="serviciosCRUD" expression="execution (* com.core.app.servicios.entidad.impl.*.*(..)) "/>
+     <aop:advisor advice-ref="txTransaccional" pointcut-ref="serviciosDatos"/>
+     <aop:advisor advice-ref="txCRUD" pointcut-ref="serviciosCRUD" />
+   </aop:config>
+   
+   <!-- Definicion de Servicios CRUD, que seran utilizados por los servicios de datos (DataServices) -->
+   
+   <bean id="crearEntidad" class="com.core.app.servicios.entidad.impl.CrearEntidadImpl" >
+       <property name="entityManager" ref="entityManager"></property>
+       <aop:scoped-proxy/>
+   </bean>
+   
+   <bean id="actualizarEntidad" class="com.core.app.servicios.entidad.impl.ActualizarEntidadImpl" >
+       <property name="entityManager" ref="entityManager"></property>
+       <aop:scoped-proxy/>
+   </bean>
+   
+   <bean id="eliminarEntidad" class="com.core.app.servicios.entidad.impl.EliminarEntidadImpl" >
+       <property name="entityManager" ref="entityManager"></property>
+       <aop:scoped-proxy/>
+   </bean>
+   
+   <bean id="obtenerEntidadesPorCriterio" class="com.core.app.servicios.entidad.impl.ObtenerEntidadesPorCriterioImpl">
+   		<property name="entityManager" ref="entityManager"></property>
+   		<aop:scoped-proxy/>
+   </bean>
 	
 </beans>

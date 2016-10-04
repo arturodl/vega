@@ -16,6 +16,8 @@
 	<import resource="context/fs/fsCuentasPorCobrar.xml"/>
 	<import resource="context/fs/fsFactibilidades.xml"/>
 	<import resource="context/fs/fsFacturacion.xml"/>
+	<import resource="context/fs/fsRH.xml"/>
+	
 	
 	<!-- definicion de beans, datasources y transaccionalidad -->
 	<import resource="context/txContext.xml"/>
