@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringFramework4.3.3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DataServices"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/OTD"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="oracle.eclipse.tools.glassfish.lib.system">
 		<attributes>
@@ -18,5 +16,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateCore4.3.11"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateEntityManager4.3.11"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DataTransferObjects"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

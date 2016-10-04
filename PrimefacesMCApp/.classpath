@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry combineaccessrules="false" kind="src" path="/OTD"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Model"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Commons"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DataServices"/>
@@ -26,6 +25,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateCore4.3.11"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateEntityManager4.3.11"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DataTransferObjects"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

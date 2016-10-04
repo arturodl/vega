@@ -5,9 +5,6 @@
         <dependent-module archiveName="FacadeServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/FacadeServices/FacadeServices">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="OTD.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OTD/OTD">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="BusinessServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/BusinessServices/BusinessServices">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -20,7 +17,10 @@
         <dependent-module archiveName="Common.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Common/Common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="Core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Core/Core">
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/DataTransferObjects/DataTransferObjects">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/Core/Core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="PrimefacesMCApp"/>

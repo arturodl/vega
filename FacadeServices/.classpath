@@ -5,8 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringFramework4.3.3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BusinessServices"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DataServices"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/OTD"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="oracle.eclipse.tools.glassfish.lib.system">
 		<attributes>
@@ -18,5 +16,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/DataTransferObjects"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
