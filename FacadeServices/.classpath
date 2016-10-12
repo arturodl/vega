@@ -18,5 +18,8 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/DataTransferObjects"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Model"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Commons"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Glassfish4.1Libs"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
