@@ -13,11 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.core.app.modelo.Entidad;
 
 
-
+@XmlRootElement(name="Department")
 @Entity(name="Department")
 @Table(name="Department", schema="HumanResources")
 @Access(AccessType.FIELD)

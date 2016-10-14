@@ -16,6 +16,7 @@ public class RhImpl implements Rh {
 	
 	@Override
 	public CrearDepartamentoRespuesta crearDepartamento(CrearDepartamentoPeticion peticion) {
+		System.out.println("La entidad es:"+peticion.getEntidad());
 		CrearDepartamentoRespuesta respuesta = crearDepartamento.ejecutar(peticion);
 		return respuesta;
 	}
