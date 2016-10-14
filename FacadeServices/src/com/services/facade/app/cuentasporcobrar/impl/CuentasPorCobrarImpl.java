@@ -5,15 +5,22 @@ import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroRespuesta;
 import com.services.business.app.cuentasporcobrar.GenerarCobro;
 import com.services.data.app.rh.ObtenerDepartamentosPorCriterio;
 import com.services.facade.app.cuentasporcobrar.CuentasPorCobrar;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+
 import com.core.app.otd.ObtenerEntidadesPorCriterioPeticion;
 import com.core.app.otd.ObtenerEntidadesPorCriterioRespuesta;
 
+@WebService(endpointInterface = "com.services.facade.app.cuentasporcobrar.CuentasPorCobrar" )
 public class CuentasPorCobrarImpl implements CuentasPorCobrar {
 	
 	private GenerarCobro generarCobro;
 	
 	@Override
 	public GenerarCobroRespuesta GenerarCobro(GenerarCobroPeticion peticion) {
+		System.out.println("El valor de generar cobro es: "+generarCobro);
 		GenerarCobroRespuesta respuesta = generarCobro.ejecutar(peticion);
 		return respuesta;
 	}

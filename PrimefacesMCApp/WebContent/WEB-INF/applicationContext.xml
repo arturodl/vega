@@ -22,4 +22,7 @@
 	<!-- definicion de beans, datasources y transaccionalidad -->
 	<import resource="context/txContext.xml"/>
 	
+	<!-- definicion de web services usando JAX-WS -->
+	<import resource="spring-jaxws.xml"/>
+	
 </beans>

@@ -27,5 +27,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DataTransferObjects"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Core"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JaxWS-2.2.8"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

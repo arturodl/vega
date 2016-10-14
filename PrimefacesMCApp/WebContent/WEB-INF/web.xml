@@ -31,6 +31,24 @@
    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>        
   </listener>	
   
+ <!--  <listener>
+   <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+  </listener>
+  -->
+  <servlet>
+    <servlet-name>jaxws-servlet</servlet-name>
+    <servlet-class>
+        com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>jaxws-servlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+  
+    
   
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
