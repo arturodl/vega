@@ -11,13 +11,13 @@
        http://jax-ws.java.net/spring/servlet.xsd">
    
   
-   <wss:binding url="/rhServices">
+   <wss:binding url="/ws/rhServices">
         <wss:service>
             <ws:service bean="#rhFacade"/>
         </wss:service>
    </wss:binding>
    
-   <wss:binding url="/cxcServices">
+   <wss:binding url="/ws/cxcServices">
         <wss:service>
             <ws:service bean="#cuentasPorCobrar"/>
         </wss:service>

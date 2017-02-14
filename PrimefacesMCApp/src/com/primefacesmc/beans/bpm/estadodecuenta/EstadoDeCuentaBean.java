@@ -30,7 +30,7 @@ public class EstadoDeCuentaBean {
     @PostConstruct
     public void inicializar(){
     	System.out.println("Inicializar estado de cuenta bean");
-    	nombreUsuario = "Arturo Linares Rincon";
+    	nombreUsuario = "Arturo Linares Rincon3";
     	try{
     		CrearDepartamentoPeticion peticion = new CrearDepartamentoPeticion();
     		Department departamento = new Department();
