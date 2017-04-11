@@ -72,5 +72,15 @@
     <welcome-file>login.xhtml</welcome-file>
   </welcome-file-list>
   
+   <!-- Primefaces Theme -->
+  
+  <context-param>
+	<param-name>primefaces.THEME</param-name>
+	<param-value>south-street</param-value>
+  </context-param>
+  
+  <!-- Ending Primefaces theme -->
+  
+  
   
 </web-app>
