@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+    	<title>Sistema de gestión</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	    <meta http-equiv="Content-Language" content="es" />
+	    <meta http-equiv="imagetoolbar" content="no" />
+	    <meta name="keywords" content="" />
+	    <meta name="description" content="" />
+    </h:head>    
+    
+    <h:body> 
+    	<h:form id="formulario">
+    	  <h:outputLabel id="loginlblSaludo" value="hola a todos 2" /> 
+    	  <p:commandButton id="loginBtnEdoCuenta" action="/WEB-INF/web/content/pantallas/EstadoDeCuenta/EstadoDeCuenta.xhtml" value="Estado de Cuenta"  />
+    	  <p:commandButton id="loginBtnAdminFactibilidades" action="/WEB-INF/web/content/pantallas/Factibilidades/AdministracionFactibilidades.xhtml" value="Admon Factibilidades"  />
+    	  <p:commandButton id="loginGenerarFactibilidades" action="/WEB-INF/web/content/pantallas/Facturacion/GenerarFacturacion.xhtml" value="Generar Facturacion"  />
+    	</h:form>
+    </h:body>
+</html>

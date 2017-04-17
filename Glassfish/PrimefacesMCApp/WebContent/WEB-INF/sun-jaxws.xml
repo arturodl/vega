@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints
+  xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+  version="2.0">
+  <!-- 
+    This file will be used for when you need to use webservices that dont use 
+    Spring Dependency Injection, at the same it is being used for jaxws-spring
+    
+  <endpoint
+      name="Rh"
+      implementation="com.services.facade.app.rh.impl.RhImpl"
+      url-pattern="/rhService"/>
+  <endpoint
+      name="CuentasPorCobrar"
+      implementation="com.services.facade.app.cuentasporcobrar.impl.CuentasPorCobrarImpl"
+      url-pattern="/cxcService"/>
+   -->
+</endpoints>
