@@ -3,8 +3,13 @@
 	<persistence-unit name="Model" transaction-type="RESOURCE_LOCAL">
 	    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>com.model.data.app.humanresources.Department</class>
-		<!-- <class>com.model.data.app.humanresources.Employee</class>
-		-->
+		<class>com.model.data.app.humanresources.Employee</class>
+		<class>com.model.data.app.humanresources.EmployeeDepartmentHistory</class>
+		<class>com.model.data.app.humanresources.EmployeeDepartmentHistoryPK</class>
+		<class>com.model.data.app.humanresources.EmployeePayHistory</class>
+		<class>com.model.data.app.humanresources.EmployeePayHistoryPK</class>
+		<class>com.model.data.app.humanresources.JobCandidate</class>
+		<class>com.model.data.app.humanresources.Shift</class>
 		<properties>		
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect"/>
