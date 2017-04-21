@@ -2,6 +2,9 @@ package com.model.data.app.humanresources;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.core.app.modelo.Entidad;
+
 import java.sql.Timestamp;
 
 
@@ -9,28 +12,29 @@ import java.sql.Timestamp;
  * The persistent class for the EmployeeDepartmentHistory database table.
  * 
  */
-@Entity
-@NamedQuery(name="EmployeeDepartmentHistory.findAll", query="SELECT e FROM EmployeeDepartmentHistory e")
-public class EmployeeDepartmentHistory extends com.core.app.modelo.Entidad implements Serializable {
+@Entity(name="EmployeeDepartmentHistory")
+@Table(name="EmployeeDepartmentHistory", schema="HumanResources")
+@Access(AccessType.FIELD)
+public class EmployeeDepartmentHistory extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private EmployeeDepartmentHistoryPK id;
 
 	@Column(name="EndDate")
-	private Object endDate;
+	private String endDate;
 
 	@Column(name="ModifiedDate")
 	private Timestamp modifiedDate;
 
 	//bi-directional many-to-one association to Employee
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="BusinessEntityID")
+	@JoinColumn(name="BusinessEntityID", insertable=false, updatable=false)
 	private Employee employee;
 
 	//bi-directional many-to-one association to Shift
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="ShiftID")
+	@JoinColumn(name="ShiftID", insertable=false, updatable=false)
 	private Shift shift;
 
 	public EmployeeDepartmentHistory() {
@@ -44,11 +48,11 @@ public class EmployeeDepartmentHistory extends com.core.app.modelo.Entidad imple
 		this.id = id;
 	}
 
-	public Object getEndDate() {
+	public String getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(Object endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 

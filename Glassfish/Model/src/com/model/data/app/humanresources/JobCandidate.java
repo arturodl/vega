@@ -2,6 +2,9 @@ package com.model.data.app.humanresources;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.core.app.modelo.Entidad;
+
 import java.sql.Timestamp;
 
 
@@ -9,21 +12,26 @@ import java.sql.Timestamp;
  * The persistent class for the JobCandidate database table.
  * 
  */
-@Entity
-@NamedQuery(name="JobCandidate.findAll", query="SELECT j FROM JobCandidate j")
-public class JobCandidate extends com.core.app.modelo.Entidad implements Serializable {
+@Entity(name="JobCandidate")
+@Table(name="JobCandidate", schema="HumanResources")
+@Access(AccessType.FIELD)
+public class JobCandidate extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="JobCandidateID")
 	private int jobCandidateID;
+	
+	@Column(name="JobCandidateID", updatable = false, insertable = false)
+	@Basic(optional = false)
+	private int id;
 
 	@Column(name="ModifiedDate")
 	private Timestamp modifiedDate;
 
 	@Column(name="Resume")
-	private Object resume;
+	private String resume;
 
 	//bi-directional many-to-one association to Employee
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -41,6 +49,14 @@ public class JobCandidate extends com.core.app.modelo.Entidad implements Seriali
 		this.jobCandidateID = jobCandidateID;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Timestamp getModifiedDate() {
 		return this.modifiedDate;
 	}
@@ -49,11 +65,11 @@ public class JobCandidate extends com.core.app.modelo.Entidad implements Seriali
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Object getResume() {
+	public String getResume() {
 		return this.resume;
 	}
 
-	public void setResume(Object resume) {
+	public void setResume(String resume) {
 		this.resume = resume;
 	}
 

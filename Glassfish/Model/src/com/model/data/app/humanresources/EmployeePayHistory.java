@@ -2,6 +2,9 @@ package com.model.data.app.humanresources;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.core.app.modelo.Entidad;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -10,9 +13,10 @@ import java.sql.Timestamp;
  * The persistent class for the EmployeePayHistory database table.
  * 
  */
-@Entity
-@NamedQuery(name="EmployeePayHistory.findAll", query="SELECT e FROM EmployeePayHistory e")
-public class EmployeePayHistory extends com.core.app.modelo.Entidad implements Serializable {
+@Entity(name="EmployeePayHistory")
+@Table(name="EmployeePayHistory", schema="HumanResources")
+@Access(AccessType.FIELD)
+public class EmployeePayHistory extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
@@ -29,7 +33,7 @@ public class EmployeePayHistory extends com.core.app.modelo.Entidad implements S
 
 	//bi-directional many-to-one association to Employee
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="BusinessEntityID")
+	@JoinColumn(name="BusinessEntityID", insertable=false, updatable=false)
 	private Employee employee;
 
 	public EmployeePayHistory() {

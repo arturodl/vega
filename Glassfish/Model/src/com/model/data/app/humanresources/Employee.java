@@ -2,7 +2,11 @@ package com.model.data.app.humanresources;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.core.app.modelo.Entidad;
+
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -10,42 +14,47 @@ import java.util.List;
  * The persistent class for the Employee database table.
  * 
  */
-@Entity
-@NamedQuery(name="Employee.findAll", query="SELECT e FROM Employee e")
-public class Employee extends com.core.app.modelo.Entidad implements Serializable {
+@Entity(name="Employee")
+@Table(name="Employee", schema="HumanResources")
+@Access(AccessType.FIELD)
+public class Employee extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="BusinessEntityID")
 	private int businessEntityID;
 
 	@Column(name="BirthDate")
-	private Object birthDate;
+	@Temporal(TemporalType.DATE)
+	@Basic(optional=false)
+	private Date birthDate;
 
 	@Column(name="CurrentFlag")
 	private boolean currentFlag;
 
 	@Column(name="Gender")
-	private Object gender;
+	private String gender;
 
 	@Column(name="HireDate")
-	private Object hireDate;
+	@Temporal(TemporalType.DATE)
+	@Basic(optional=false)
+	private Date hireDate;
 
 	@Column(name="JobTitle")
-	private Object jobTitle;
+	private String jobTitle;
 
 	@Column(name="LoginID")
-	private Object loginID;
+	private String loginID;
 
 	@Column(name="MaritalStatus")
-	private Object maritalStatus;
+	private String maritalStatus;
 
 	@Column(name="ModifiedDate")
 	private Timestamp modifiedDate;
 
 	@Column(name="NationalIDNumber")
-	private Object nationalIDNumber;
+	private String nationalIDNumber;
 
 	@Column(name="OrganizationLevel")
 	private short organizationLevel;
@@ -65,15 +74,15 @@ public class Employee extends com.core.app.modelo.Entidad implements Serializabl
 	private short vacationHours;
 
 	//bi-directional many-to-one association to EmployeeDepartmentHistory
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy="employee", fetch=FetchType.LAZY)
 	private List<EmployeeDepartmentHistory> employeeDepartmentHistories;
 
 	//bi-directional many-to-one association to EmployeePayHistory
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy="employee", fetch=FetchType.LAZY)
 	private List<EmployeePayHistory> employeePayHistories;
 
 	//bi-directional many-to-one association to JobCandidate
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy="employee",fetch=FetchType.LAZY)
 	private List<JobCandidate> jobCandidates;
 
 	public Employee() {
@@ -87,11 +96,11 @@ public class Employee extends com.core.app.modelo.Entidad implements Serializabl
 		this.businessEntityID = businessEntityID;
 	}
 
-	public Object getBirthDate() {
+	public Date getBirthDate() {
 		return this.birthDate;
 	}
 
-	public void setBirthDate(Object birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -103,43 +112,43 @@ public class Employee extends com.core.app.modelo.Entidad implements Serializabl
 		this.currentFlag = currentFlag;
 	}
 
-	public Object getGender() {
+	public String getGender() {
 		return this.gender;
 	}
 
-	public void setGender(Object gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-	public Object getHireDate() {
+	public Date getHireDate() {
 		return this.hireDate;
 	}
 
-	public void setHireDate(Object hireDate) {
+	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
 
-	public Object getJobTitle() {
+	public String getJobTitle() {
 		return this.jobTitle;
 	}
 
-	public void setJobTitle(Object jobTitle) {
+	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
 
-	public Object getLoginID() {
+	public String getLoginID() {
 		return this.loginID;
 	}
 
-	public void setLoginID(Object loginID) {
+	public void setLoginID(String loginID) {
 		this.loginID = loginID;
 	}
 
-	public Object getMaritalStatus() {
+	public String getMaritalStatus() {
 		return this.maritalStatus;
 	}
 
-	public void setMaritalStatus(Object maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 
@@ -151,11 +160,11 @@ public class Employee extends com.core.app.modelo.Entidad implements Serializabl
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Object getNationalIDNumber() {
+	public String getNationalIDNumber() {
 		return this.nationalIDNumber;
 	}
 
-	public void setNationalIDNumber(Object nationalIDNumber) {
+	public void setNationalIDNumber(String nationalIDNumber) {
 		this.nationalIDNumber = nationalIDNumber;
 	}
 

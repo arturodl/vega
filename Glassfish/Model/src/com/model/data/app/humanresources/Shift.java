@@ -2,6 +2,9 @@ package com.model.data.app.humanresources;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.core.app.modelo.Entidad;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -10,15 +13,20 @@ import java.util.List;
  * The persistent class for the Shift database table.
  * 
  */
-@Entity
-@NamedQuery(name="Shift.findAll", query="SELECT s FROM Shift s")
-public class Shift extends com.core.app.modelo.Entidad implements Serializable {
+@Entity(name="Shift")
+@Table(name="Shift", schema="HumanResources")
+@Access(AccessType.FIELD)
+public class Shift extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ShiftID")
 	private short shiftID;
+	
+	@Column(name="ShiftID", updatable = false, insertable = false)
+	@Basic(optional = false)
+	private short id;
 
 	@Column(name="EndTime")
 	private String endTime;
@@ -27,13 +35,13 @@ public class Shift extends com.core.app.modelo.Entidad implements Serializable {
 	private Timestamp modifiedDate;
 
 	@Column(name="Name")
-	private Object name;
+	private String name;
 
 	@Column(name="StartTime")
 	private String startTime;
 
 	//bi-directional many-to-one association to EmployeeDepartmentHistory
-	@OneToMany(mappedBy="shift")
+	@OneToMany(mappedBy="shift", fetch=FetchType.LAZY)
 	private List<EmployeeDepartmentHistory> employeeDepartmentHistories;
 
 	public Shift() {
@@ -45,6 +53,14 @@ public class Shift extends com.core.app.modelo.Entidad implements Serializable {
 
 	public void setShiftID(short shiftID) {
 		this.shiftID = shiftID;
+	}
+
+	public short getId() {
+		return id;
+	}
+
+	public void setId(short id) {
+		this.id = id;
 	}
 
 	public String getEndTime() {
@@ -63,11 +79,11 @@ public class Shift extends com.core.app.modelo.Entidad implements Serializable {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Object getName() {
+	public String getName() {
 		return this.name;
 	}
 
-	public void setName(Object name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
