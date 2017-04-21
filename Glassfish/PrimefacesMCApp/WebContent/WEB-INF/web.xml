@@ -36,7 +36,7 @@
   </listener>
   -->
   
-  <!--  configuracion para los web services -->
+  <!--  inicia configuracion para los web services -->
   <servlet>
     <servlet-name>jaxws-servlet</servlet-name>
     <servlet-class>
@@ -49,6 +49,7 @@
     <servlet-name>jaxws-servlet</servlet-name>
     <url-pattern>/ws/*</url-pattern>
   </servlet-mapping>   
+  <!-- Termina configuracion para los web services -->
   
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
