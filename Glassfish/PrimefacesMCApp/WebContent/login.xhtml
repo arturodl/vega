@@ -14,14 +14,37 @@
 	    <meta http-equiv="imagetoolbar" content="no" />
 	    <meta name="keywords" content="" />
 	    <meta name="description" content="" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <link rel="stylesheet" href="css/login.css" type="text/css"/>
     </h:head>    
     
     <h:body> 
     	<h:form id="formulario">
-    	  <h:outputLabel id="loginlblSaludo" value="hola a todos 2" /> 
+    	  <div id="loginContenedorPrincipal">
+    	  	<div id="loginColumnaIzq">
+    	  	    <div id="divLogos">
+    	  			<h:outputLabel id="login-lblERP" value="E R P" styleClass="labelErp" /> 
+    	  			<h:outputLabel id="login-lblDescripcion" value="enterprise" styleClass="labelDescripcion" />
+    	  		</div>
+    	  	</div>
+    	  	<div id="loginColumnaDer">
+    	  		<div id="divInfoUsuario">
+    	  		    <h:outputLabel id="lblGobiernoMunicipal" value="Governo Comunale" styleClass="lblGobiernoMunicipal"/>
+    	  		    <h:outputLabel id="lblBienvenidos" value="Benvenuti" styleClass="margin lblBienvenidos"/>
+    	  		    <h:outputLabel id="lblNombreUsuario" value="Utente"/>
+    	  			<p:inputText id="txtNombreUsuario" value="#{loginBean.nombreUsuario}" size="20" maxlength="20" styleClass="margin fontPrincipal"></p:inputText>
+    	  			<h:outputLabel id="lblContrasena" value="Password"/>
+    	  			<p:password id="pwdPassWordUsuario" value="#{loginBean.claveUsuario}" size="20" maxlength="20" styleClass="margin fontPrincipal"></p:password>
+    	  			<p:commandButton id="loginBtnIngresar" value="Accedi" action="#{loginBean.redireccionar}" actionListener="#{loginBean.onLogin}"  styleClass="margin fontPrincipal"/>
+    	  			<h:outputLabel id="lblAvisoImportante" value="Si usted no cuenta aun con sus credenciales de ingreso, favor de comunicarse al area de sistemas" styleClass="lblAvisoImportante"/>
+    	  		</div>
+    	    </div>    	 
+    	  </div>
+    	  <!-- 
     	  <p:commandButton id="loginBtnEdoCuenta" action="/WEB-INF/web/content/pantallas/EstadoDeCuenta/EstadoDeCuenta.xhtml" value="Estado de Cuenta"  />
     	  <p:commandButton id="loginBtnAdminFactibilidades" action="/WEB-INF/web/content/pantallas/Factibilidades/AdministracionFactibilidades.xhtml" value="Admon Factibilidades"  />
     	  <p:commandButton id="loginGenerarFactibilidades" action="/WEB-INF/web/content/pantallas/Facturacion/GenerarFacturacion.xhtml" value="Generar Facturacion"  />
+    	  -->
     	</h:form>
     </h:body>
 </html>

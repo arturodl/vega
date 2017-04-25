@@ -77,7 +77,7 @@
   
   <context-param>
 	<param-name>primefaces.THEME</param-name>
-	<param-value>south-street</param-value>
+	<param-value>bootstrap</param-value>
   </context-param>
   
   <!-- Ending Primefaces theme -->
