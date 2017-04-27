@@ -8,25 +8,13 @@
     id="menuPlantilla-divPrincipal">
 	<ui:composition>
 	   <h:form id="menuplantilla-formPrincipal" styleClass="fontPrincipal itemMenu">
-		 <p:panelMenu id="menuPlantilla-menu" styleClass="fontPrincipal itemMenu">
-        	<p:submenu label="Inventario"  styleClass="fontPrincipal itemMenu">
-            	<p:menuitem value="Articulos" styleClass="fontPrincipal itemMenu" />
-            	<p:menuitem value="Productos" styleClass="fontPrincipal itemMenu" />
-        	</p:submenu>
-        	<p:submenu label="Compras" styleClass="fontPrincipal itemMenu">
-            	<p:menuitem value="Proveedores" styleClass="fontPrincipal itemMenu"/>
-        	</p:submenu>
-        	<p:separator />
-        	<p:submenu label="Ventas" styleClass="fontPrincipal itemMenu">
-            	<p:submenu label="Tipos de Ventas" styleClass="fontPrincipal itemMenu">
-                   	<p:menuitem value="Contado" url="http://www.primefaces.org" styleClass="fontPrincipal itemMenu" />
-                   	<p:menuitem value="Credito" url="http://www.primefaces.org/documentation" styleClass="fontPrincipal itemMenu" />
-                   	<p:menuitem value="Promociones" url="http://www.primefaces.org/downloads" styleClass="fontPrincipal itemMenu" />
-                   	<p:menuitem value="Beneficios" url="http://www.primefaces.org/support" styleClass="fontPrincipal itemMenu" />
-               	</p:submenu>
-            	<p:menuitem value="Recursos Humanos" styleClass="fontPrincipal itemMenu" />
-        	</p:submenu>
-    	  </p:panelMenu>
-    	</h:form>
+	   	<p:tree id="menuArbol" value="#{aplicacionBean.raizArbol}" var="node">
+	        <p:treeNode>
+	           <span style="cursor:pointer;" onclick="this.parentNode.parentNode.firstChild.click();">
+	            <h:outputText value="#{node}" styleClass="hijo"/>
+	           </span>
+	        </p:treeNode>
+	    </p:tree>
+       </h:form>
 	</ui:composition>
 </div>

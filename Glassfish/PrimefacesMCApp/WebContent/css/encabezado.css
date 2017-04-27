@@ -1,0 +1,14 @@
+/* Estilos encabezado-plantilla */
+
+#headerPlantilla-lblEnterprise {
+    font-size: 12px;
+}
+
+#headerPlantilla-lblERP {
+    font-size: 28px;
+}
+
+#headerPlantilla-divBarraUsuario {
+    float: right;
+    margin: 5px 0;
+}

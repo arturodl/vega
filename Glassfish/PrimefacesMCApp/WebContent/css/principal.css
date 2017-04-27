@@ -39,11 +39,3 @@ html, body, #principalPlantilla-divPrincipal {
 }
 #principalPlantilla-divPrincipal > #divPie {
 }
-
-.itemMenu a {
-    text-decoration: none !important;
-}
-
-.itemMenu{
-	font-size: 14px;
-}
