@@ -15,7 +15,8 @@
 	    <meta name="keywords" content="" />
 	    <meta name="description" content="" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	    <link rel="stylesheet" href="css/login.css" type="text/css"/>
+	    <link rel="stylesheet" href="css/login.css" type="text/css"/>  
+	    <!--  <h:outputStylesheet library="awesome" name="css/font-awesome.css"/> -->
     </h:head>    
     
     <h:body> 
@@ -35,7 +36,8 @@
     	  			<p:inputText id="txtNombreUsuario" value="#{loginBean.nombreUsuario}" size="20" maxlength="20" styleClass="margin fontPrincipal"></p:inputText>
     	  			<h:outputLabel id="lblContrasena" value="Password"/>
     	  			<p:password id="pwdPassWordUsuario" value="#{loginBean.claveUsuario}" size="20" maxlength="20" styleClass="margin fontPrincipal"></p:password>
-    	  			<p:commandButton id="loginBtnIngresar" value="Accedi" action="#{loginBean.redireccionar}" actionListener="#{loginBean.onLogin}"  styleClass="margin fontPrincipal"/>
+    	  			<p:commandButton id="loginBtnIngresar" value="Accedi" action="#{loginBean.redireccionar}" actionListener="#{loginBean.onLogin}"  
+    	  					styleClass="margin fontPrincipal"/>
     	  			<h:outputLabel id="lblAvisoImportante" value="Si usted no cuenta aun con sus credenciales de ingreso, favor de comunicarse al area de sistemas" styleClass="lblAvisoImportante"/>
     	  		</div>
     	    </div>    	 

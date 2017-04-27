@@ -4,20 +4,49 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
     id="headerPlantilla-divPrincipal">
+    <h:form id="headerPlantilla-formPrincipal">
 	<h:outputLabel id="headerPlantilla-lblERP" value="ERP">
 	</h:outputLabel>
-	<h:outputLabel id="headerPlantilla-lblEnterprise" value="enterprise">
+	<h:outputLabel id="headerPlantilla-lblEnterprise" value="enterprise" >
 	</h:outputLabel>
+	
+	
 	<div id="headerPlantilla-divBarraUsuario">
 	   <table id="headerPlantilla-tableBarraUsuario">
 	     <tr>
-	      <td id="headerPlantilla-tdCorreos"> Correos </td>
-	      <td id="headerPlantilla-tdNotificaciones"> Notificaciones </td>
-	      <td id="headerPlantilla-tdUsuario"> Usuario </td>
-	      <td id="headerPlantilla-tdConfiguracion"> Configuracion </td>
+	      <td id="headerPlantilla-tdInicio"> 
+	         <a>
+	         <span id="headerPlantilla-spanInicio" class="icono-awesome fa fa-home" >
+	            <p:ajax event="click" listener="#{aplicacionBean.validando}"/>
+	         </span>
+	         </a>	         
+	      </td>
+	      <td id="headerPlantilla-tdCorreos"> 
+	         <a>
+	         <span id="headerPlantilla-spanCorreo" class="icono-awesome fa fa-envelope">
+	         	
+	         </span>
+	         </a>
+	      </td>
+	      <td id="headerPlantilla-tdNotificaciones">
+	         <a> 
+	      	 <span id="headerPlantilla-spanNotificaciones" class="icono-awesome fa fa-bell"></span>
+	         </a> 
+	      </td>
+	      <td id="headerPlantilla-tdUsuario">
+	      	<a> 
+	      	 <span id="headerPlantilla-spanUsuario" class="icono-awesome fa fa-user"></span>
+	      	 <h:outputLabel id="headerPlantilla-lblUsuario" value="#{aplicacionBean.usuario}"></h:outputLabel>
+	      	</a>	         
+	      </td>
+	      <td id="headerPlantilla-tdConfiguracion">
+	      	 <a>
+	      	 <span id="headerPlantilla-spanConfiguracion" class="icono-awesome fa fa-wrench"></span>
+	         </a> 		 
+	      </td>
 	     </tr>
 	   </table>
 	</div>
+	</h:form>
 </div>

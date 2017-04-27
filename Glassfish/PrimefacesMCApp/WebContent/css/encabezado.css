@@ -1,14 +1,46 @@
 /* Estilos encabezado-plantilla */
 
-#headerPlantilla-lblEnterprise {
+#headerPlantilla-divPrincipal {
+    color: #C6CACD;
+}
+
+#headerPlantilla-formPrincipal\:headerPlantilla-lblEnterprise {
     font-size: 12px;
 }
 
-#headerPlantilla-lblERP {
+#headerPlantilla-formPrincipal\:headerPlantilla-lblERP {
     font-size: 28px;
 }
 
 #headerPlantilla-divBarraUsuario {
     float: right;
     margin: 5px 0;
+    font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
+}
+
+#headerPlantilla-formPrincipal\:headerPlantilla-plinkUsuario {
+    font-size: 14px;
+    color: #EFEEEE;
+    text-decoration: none;
+    font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
+}
+
+#headerPlantilla-divBarraUsuario .icono-awesome {
+	font-size: 20px;
+}
+
+#headerPlantilla-tableBarraUsuario td {
+    padding: 4px 12px 0 0;
+}
+
+#headerPlantilla-divBarraUsuario a {
+    color: #c6cacd;
+}
+#headerPlantilla-divBarraUsuario a:hover {
+    color: #1285bc;
+    cursor: pointer;
+}
+
+#headerPlantilla-formPrincipal\:headerPlantilla-lblUsuario {
+    margin-left: 3px;
 }

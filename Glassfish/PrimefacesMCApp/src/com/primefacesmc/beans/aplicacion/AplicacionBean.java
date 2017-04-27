@@ -19,22 +19,22 @@ public class AplicacionBean {
     public void inicializar(){
     	this.raizArbol = new DefaultTreeNode("Root", null); 
     	
-    	TreeNode inventarios = new DefaultTreeNode(" - Inventarios", raizArbol);
-    	TreeNode compras = new DefaultTreeNode(" - Compras", raizArbol);    	
-    	TreeNode ventas = new DefaultTreeNode(" - Ventas", raizArbol);
-    	TreeNode facturacion = new DefaultTreeNode(" - Facturacion", raizArbol);
-    	TreeNode rh = new DefaultTreeNode(" - Recursos Humanos", raizArbol);
-    	TreeNode reportes = new DefaultTreeNode(" - Reportes", raizArbol);
+    	TreeNode inventarios = new DefaultTreeNode("Inventarios", raizArbol);
+    	TreeNode compras = new DefaultTreeNode("Compras", raizArbol);    	
+    	TreeNode ventas = new DefaultTreeNode("Ventas", raizArbol);
+    	TreeNode facturacion = new DefaultTreeNode("Facturacion", raizArbol);
+    	TreeNode rh = new DefaultTreeNode("Recursos Humanos", raizArbol);
+    	TreeNode reportes = new DefaultTreeNode("Reportes", raizArbol);
     	
-    	TreeNode requisiciones = new DefaultTreeNode(" - Requisiciones", inventarios);
+    	TreeNode requisiciones = new DefaultTreeNode("Requisiciones", inventarios);
     	requisiciones.getChildren().add(new DefaultTreeNode("Automaticas"));
     	requisiciones.getChildren().add(new DefaultTreeNode("Manuales"));
     	
-    	TreeNode ingresos = new DefaultTreeNode(" - Ingresos", inventarios);
+    	TreeNode ingresos = new DefaultTreeNode("Ingresos", inventarios);
     	ingresos.getChildren().add(new DefaultTreeNode("Automaticos"));
     	ingresos.getChildren().add(new DefaultTreeNode("Manuales"));
     	
-    	TreeNode proveedores = new DefaultTreeNode(" - Proveedores", compras);
+    	TreeNode proveedores = new DefaultTreeNode("Proveedores", compras);
     	proveedores.getChildren().add(new DefaultTreeNode("Lista"));
 
     	ventas.getChildren().add(new DefaultTreeNode("De contado"));
@@ -51,6 +51,12 @@ public class AplicacionBean {
     	reportes.getChildren().add(new DefaultTreeNode("Reporte Tipo C"));
     	reportes.getChildren().add(new DefaultTreeNode("Reporte Tipo D"));
     	reportes.getChildren().add(new DefaultTreeNode("Reporte Tipo E"));
+    	
+    	this.usuario = "Arturo Linares";
+    }
+    
+    public void validando(){
+    	System.out.println("Validando el enlace");
     }
 
 	public int getClave() {
