@@ -16,34 +16,30 @@
 	   <table id="headerPlantilla-tableBarraUsuario">
 	     <tr>
 	      <td id="headerPlantilla-tdInicio"> 
-	         <a>
-	         <span id="headerPlantilla-spanInicio" class="icono-awesome fa fa-home" >
-	            <p:ajax event="click" listener="#{aplicacionBean.validando}"/>
-	         </span>
-	         </a>	         
+	         <h:commandLink id="headerPlantilla-linkInicio" class="icono-awesome fa fa-home">	         
+	            <p:ajax event="click" update=":contenidoPlantilla-panelPrincipal"  listener="#{aplicacionBean.actualizarContenido}"/>	         
+	         </h:commandLink>	         
 	      </td>
 	      <td id="headerPlantilla-tdCorreos"> 
-	         <a>
-	         <span id="headerPlantilla-spanCorreo" class="icono-awesome fa fa-envelope">
-	         	
-	         </span>
-	         </a>
+	         <h:commandLink id="headerPlantilla-linkCorreos" class="icono-awesome fa fa-envelope">	         
+	         	<p:ajax event="click" update=":contenidoPlantilla-panelPrincipal"  listener="#{aplicacionBean.actualizarContenido}"/>
+	         </h:commandLink>
 	      </td>
 	      <td id="headerPlantilla-tdNotificaciones">
-	         <a> 
-	      	 <span id="headerPlantilla-spanNotificaciones" class="icono-awesome fa fa-bell"></span>
-	         </a> 
+	        <h:commandLink id="headerPlantilla-linkNotificaciones" class="icono-awesome fa fa-bell">	         
+	         	<p:ajax event="click" update=":contenidoPlantilla-panelPrincipal"  listener="#{aplicacionBean.actualizarContenido}"/>
+	         </h:commandLink>	          
 	      </td>
 	      <td id="headerPlantilla-tdUsuario">
-	      	<a> 
-	      	 <span id="headerPlantilla-spanUsuario" class="icono-awesome fa fa-user"></span>
-	      	 <h:outputLabel id="headerPlantilla-lblUsuario" value="#{aplicacionBean.usuario}"></h:outputLabel>
-	      	</a>	         
+	      	 <h:commandLink id="headerPlantilla-linkUsuario" class="icono-awesome fa fa-user">	
+	      	    <h:outputLabel id="headerPlantilla-Usuario" value="#{aplicacionBean.usuario}"></h:outputLabel>         
+	         	<p:ajax event="click" update=":contenidoPlantilla-panelPrincipal"  listener="#{aplicacionBean.actualizarContenido}"/>
+	         </h:commandLink>	      		         
 	      </td>
 	      <td id="headerPlantilla-tdConfiguracion">
-	      	 <a>
-	      	 <span id="headerPlantilla-spanConfiguracion" class="icono-awesome fa fa-wrench"></span>
-	         </a> 		 
+	         <h:commandLink id="headerPlantilla-linkConfiguracion" class="icono-awesome fa fa-wrench">	         
+	         	<p:ajax event="click" update=":contenidoPlantilla-panelPrincipal"  listener="#{aplicacionBean.actualizarContenido}"/>
+	         </h:commandLink>	      	  		 
 	      </td>
 	     </tr>
 	   </table>

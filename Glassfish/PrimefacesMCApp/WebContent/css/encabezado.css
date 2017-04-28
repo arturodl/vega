@@ -18,11 +18,10 @@
     font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
 }
 
-#headerPlantilla-formPrincipal\:headerPlantilla-plinkUsuario {
-    font-size: 14px;
-    color: #EFEEEE;
-    text-decoration: none;
+#headerPlantilla-formPrincipal\:headerPlantilla-Usuario {
     font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
+    font-size: 16px;
+    padding: 0 0px 0 3px;
 }
 
 #headerPlantilla-divBarraUsuario .icono-awesome {
@@ -35,12 +34,11 @@
 
 #headerPlantilla-divBarraUsuario a {
     color: #c6cacd;
-}
-#headerPlantilla-divBarraUsuario a:hover {
-    color: #1285bc;
-    cursor: pointer;
+    text-decoration: none;
 }
 
-#headerPlantilla-formPrincipal\:headerPlantilla-lblUsuario {
-    margin-left: 3px;
+#headerPlantilla-divBarraUsuario a:hover,
+#headerPlantilla-formPrincipal\:headerPlantilla-Usuario:hover {
+    color: #1285bc;
+    cursor: pointer;
 }

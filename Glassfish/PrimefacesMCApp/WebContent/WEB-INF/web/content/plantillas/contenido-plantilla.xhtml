@@ -6,6 +6,7 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     id="contenidoPlantilla-divPrincipal">
-	<h:outputLabel id="contenidoPlantilla-lblBienvenidos" value="Has entrado al sistema">
-	</h:outputLabel>
+	<h:panelGroup id="contenidoPlantilla-panelPrincipal">
+		<ui:include src="#{aplicacionBean.pagina.url}"></ui:include>
+	</h:panelGroup>
 </div>

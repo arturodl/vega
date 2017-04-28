@@ -11,7 +11,7 @@
 	   	<p:tree id="menuArbol" value="#{aplicacionBean.raizArbol}" var="node">
 	        <p:treeNode id="nodoArbol">
 	           <span style="cursor:pointer;" onclick="this.parentNode.parentNode.firstChild.click();">
-	            <h:outputText value="#{node}" styleClass="hijo"/>
+	           	<h:outputText value="#{node}"/>
 	           </span>
 	        </p:treeNode>
 	    </p:tree>
