@@ -12,6 +12,8 @@
 #menuplantilla-formPrincipal .ui-tree{
 	width: 100%;
 }
+
+/**
 #menuplantilla-formPrincipal .ui-tree-container{
 	
 } 
@@ -36,15 +38,17 @@
 #menuplantilla-formPrincipal .ui-treenode-leaf{
 	
 }
+**/
 
-#menuplantilla-formPrincipal li > span:hover {
+/** #menuplantilla-formPrincipal li > span:hover {
     background-color: #0073AA;
     color: white;
-}
-
-#menuplantilla-formPrincipal li > span:active {
+} 
+ **/
+/**
+#menuplantilla-formPrincipal li > span:active { **/
     /* background-color: #d19b3d; */
-}
+/** } 
 
 #menuplantilla-formPrincipal .ui-icon {
     display: none;
@@ -67,3 +71,9 @@
     display: none;
 }
 
+#menuplantilla-formPrincipal\:menuArbol .ui-state-hover {
+    
+}
+#menuplantilla-formPrincipal\:menuArbol .ui-state-highlight {
+    
+} **/

@@ -6,15 +6,21 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     id="menuPlantilla-divPrincipal">
-	<ui:composition>
+	
 	   <h:form id="menuplantilla-formPrincipal" styleClass="fontPrincipal itemMenu">
-	   	<p:tree id="menuArbol" value="#{aplicacionBean.raizArbol}" var="node">
+	   
+	   	<p:tree id="menuArbol" value="#{aplicacionBean.raizArbol}" var="node" cache="true"
+	   	    selectionMode="single" selection="#{aplicacionBean.nodoSeleccionado}" >
+	   	    
+	   	    <p:ajax event="select" listener="#{aplicacionBean.seleccionandoNodo}" process="@this" />
+	        
 	        <p:treeNode id="nodoArbol">
-	           <span style="cursor:pointer;" onclick="this.parentNode.parentNode.firstChild.click();">
-	           	<h:outputText value="#{node}"/>
-	           </span>
+	           
+	           	<h:outputText value="#{node.pagina}"/>
+	            
 	        </p:treeNode>
 	    </p:tree>
+	    
        </h:form>
-	</ui:composition>
+	
 </div>
