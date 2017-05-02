@@ -4,22 +4,28 @@ public class Pagina {
 	private int idPagina;
 	private String pagina;
 	private String urlPagina;
+	private String nombreBean;
 	private String comentarios;
 	private int idModulo;
+	private boolean esSubmodulo;
 	
-	public Pagina(int idPagina, String pagina, String urlPagina, String comentarios){
+	public Pagina(int idPagina, String pagina, String urlPagina, String nombreBean, String comentarios){
 		this.idPagina = idPagina;
 		this.pagina = pagina;
 		this.urlPagina = urlPagina;
+		this.nombreBean = nombreBean;
 		this.comentarios = comentarios;		
+		this.esSubmodulo = urlPagina == null;
 	}
 	
-	public Pagina (int idPagina, String pagina, String urlPagina, String comentarios, int idModulo){
+	public Pagina (int idPagina, String pagina, String urlPagina, String nombreBean, String comentarios, int idModulo){
 		this.idPagina = idPagina;
 		this.pagina = pagina;
 		this.urlPagina = urlPagina;
+		this.nombreBean = nombreBean;
 		this.comentarios = comentarios;
 		this.idModulo = idModulo;
+		this.esSubmodulo = urlPagina == null;
 	}
 	
 	public int getIdPagina() {
@@ -51,6 +57,22 @@ public class Pagina {
 	}
 	public void setIdModulo(int idModulo) {
 		this.idModulo = idModulo;
+	}
+
+	public boolean getEsSubmodulo() {
+		return esSubmodulo;
+	}
+
+	public void setEsSubmodulo(boolean esSubmodulo) {
+		this.esSubmodulo = esSubmodulo;
+	}
+
+	public String getNombreBean() {
+		return nombreBean;
+	}
+
+	public void setNombreBean(String nombreBean) {
+		this.nombreBean = nombreBean;
 	}
 	
 	
