@@ -6,9 +6,24 @@ html, body, #principalPlantilla-divPrincipal {
     font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
 }
 
+/** Estilos Generales que son usados por todos los componentes y elementos del sistema **/
 .fontPrincipal{
 	font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif !important;
 }
+
+.ulGeneral {
+	display: inline-flex;
+    list-style-type: none;
+    clear: both;    
+}
+
+.divGeneral {
+	background-color: white;
+	border: 1px solid #E6E6E6;
+	margin: 0px 30px 10px 30px;
+}
+
+/** Terminan Los Estilos Generales que son usados por todos los componentes y elementos del sistema **/
 
 #principalPlantilla-divPrincipal {
     max-width: 100%;

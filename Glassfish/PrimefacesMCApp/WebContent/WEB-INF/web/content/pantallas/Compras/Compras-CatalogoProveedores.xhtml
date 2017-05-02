@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    id="comprasCatalogoProveedores-divPrincipal">
+    
+    <style>
+        #comprasCatalogoProveedores-divPrincipal, #comprasCatalogoProveedores-formPrincipal {
+		    font-size: 14px;
+		    height: 100%;
+		    width: 100%;
+		}
+		#comprasCatalogoProveedores-divEncabezado {
+		    //background-color: blue;
+		    border: 0 solid black;
+		    height: 40px;
+		    min-width: 300px;
+		    width: 100%;
+		}
+		#comprasCatalogoProveedores-divColumnaIzq {		    
+		    border: 0 solid black;
+		    float: left;
+		    height: 93.5%;
+		    min-width: 300px;
+		    width: 50%;
+		}
+		#comprasCatalogoProveedores-divColumnaDer {
+		    //background-color: purple;
+		    border: 0 solid black;
+		    float: left;
+		    height: 93.5%;
+		    min-width: 300px;
+		    width: 50%;
+		}		
+		
+		#comprasCatalogoProveedores-formPrincipal .ui-widget, .ui-selectonemenu-list-item {
+            font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
+            font-size: 14px;
+	 	}
+    </style>
+    
+    <h:form id="comprasCatalogoProveedores-formPrincipal">
+        <div id="comprasCatalogoProveedores-divEncabezado">
+        	<h:outputLabel id="comprasCatalogoProveedores-lblBienvenidosAProveedores" value="#{catalogoProveedoresBean.msgBienvenida}" />
+   	 	</div>
+   	 	
+   	 	<div id="comprasCatalogoProveedores-divColumnaIzq">
+   	 	    <div id="comprasCatalogoProveedores-divInfoProveedor" class="divGeneral">
+   	 	        <label id="comprasCatalogoProveedores-lblInfoProveedor" />
+		  	 	<ul class="ulGeneral">
+		  	 		<li> <h:outputLabel id="comprasCatalogoProveedores-lblNumeroCuenta" value="Numero de Cuenta: " /> </li>
+		  	 		<li> <p:inputText id="comprasCatalogoProveedores-txtNumeroCuenta" value="#{catalogoProveedoresBean.numeroDeCuenta}" size="30" maxlength="30"/> </li>   	 		
+		  	 	</ul>
+		  	 	
+		  	 	<ul class="ulGeneral">
+		  	 		<li> <h:outputLabel id="comprasCatalogoProveedores-lblNombreProveedor" value="Nombre Proveedor: " /> </li>
+		  	 		<li> <p:inputText id="comprasCatalogoProveedores-txtNombreProveedor" value="#{catalogoProveedoresBean.nombre}" size="50" maxlength="100"/> </li>
+		  	 	</ul>
+		  	 	
+		  	 	<ul class="ulGeneral">
+		  	 		<li> <h:outputLabel id="comprasCatalogoProveedores-lblCalificacionCredito" value="CalificacionCredito: " /> </li>
+		  	 		<li> <p:selectOneMenu id="comprasCatalogoProveedores-listCalificacionCredito" value="#{catalogoProveedoresBean.calificacionDeCredito}" >
+		  	 		  		<f:selectItems value="#{catalogoProveedoresBean.listaCalificaciones}" var="calificacion" itemLabel="#{calificacion}" 
+		  	 		  					itemValue="#{calificacion}"/>
+		  	 		     </p:selectOneMenu> 
+		  	 		</li>
+		  	 	</ul>
+		  	 	
+		  	 	<ul class="ulGeneral">
+		  	 	  <li> <h:outputLabel id="comprasCatalogoProveedores-lblProveedorPreferido" value="Proveedor Preferido: " /> </li>
+		  	 	  <li> <p:selectOneButton id="comprasCatogoProveedores-selectProveedorPreferido" value="#{catalogoProveedoresBean.proveedorPreferido}">
+		  	 	  			<f:selectItem itemLabel="Si" itemValue="#{true}"/>
+		  	 	  			<f:selectItem itemLabel="No" itemValue="#{false}"/>
+		  	 	       </p:selectOneButton>
+		  	 	  </li>
+		  	 	</ul>
+		  	 	
+		  	 	<ul class="ulGeneral">
+		  	 	  <li> <h:outputLabel id="comprasCatalogoProveedores-lblProveedorActivo" value="Proveedor Activo: " /> </li>
+		  	 	  <li> <p:selectOneButton id="comprasCatalogoProveedores-selectProveedorActivo" value="#{catalogoProveedoresBean.proveedorActivo}">
+		  	 	  			<f:selectItem itemLabel="Si" itemValue="#{true}"/>
+		  	 	  			<f:selectItem itemLabel="No" itemValue="#{false}"/>
+		  	 	       </p:selectOneButton>
+		  	 	  </li>
+		  	 	</ul>
+	  	 	</div>
+	  	 	
+   	 		<div id="comprasCatalogoProveedores-divInfoDireccion" class="divGeneral">
+   	            <ul class="ulGeneral" style="width: 92%;">
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblDireccion1" value="Direccion 1" /> </li>
+   	            	<li style="width: 70%;"> 
+   	            		 <p:inputTextarea id="comprasCatalogoProveedores-txtAreaDireccion1" value="#{catalogoProveedoresBean.direccion1}"
+   	            		 		style="width:100%;">
+   	            		 </p:inputTextarea> 
+   	                </li>   	                
+   	            </ul>
+   	            <ul class="ulGeneral" style="width: 92%;">
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblDireccion2" value="Direccion 2" /> </li>
+   	            	<li style="width:70%;"> 
+   	            		 <p:inputTextarea id="comprasCatalogoProveedores-txtAreaDireccion2" value="#{catalogoProveedoresBean.direccion2}"
+   	            		 		style="width:100%;"> 
+   	            		 </p:inputTextarea>   	            	 
+   	            	</li>
+   	            </ul>
+   	            <ul class="ulGeneral">
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblCiudad" value="Ciudad: " /> </li>
+   	            	<li> <p:inputText id="comprasCatalogoProveedores-txtCiudad" value="#{catalogoProveedoresBean.ciudad}"/>
+   	            	</li>
+   	            </ul>
+   	            
+   	            <ul class="ulGeneral">
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblEstados" value="Estados: "/> </li>
+   	            	<li> <p:selectOneMenu id="comprasCatalogoProveedores-listaEstados" >
+   	            			<f:selectItems value="#{catalogoProveedoresBean.listaEstados}" var="estado" itemLabel="#{estado}" itemValue="#{estado}" />
+   	            	     </p:selectOneMenu>
+   	            	</li>
+   	            </ul>
+   	            <ul class="ulGeneral" >
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblCodigoPostal" value="Codigo Postal"/> </li>
+   	            	<li> <p:inputText id="comprasCatalogoProveedores-txtCodigoPostal" value="#{catalogoProveedoresBean.codigoPostal}" />
+   	            	</li>
+   	            </ul>
+   	        </div> 
+   	        <p:commandButton id="comprasCatalogoProveedores" value="Guardar" actionListener="#{catalogoProveedoresBean.guardar}"
+   	        	process="@form" update="@this"/>
+   	    </div>
+   	    <div id="comprasCatalogoProveedores-divColumnaDer">
+   	      
+   	    </div>
+    </h:form>
+    
+   
+    
+</div>

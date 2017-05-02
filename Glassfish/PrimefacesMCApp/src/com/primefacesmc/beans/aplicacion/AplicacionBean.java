@@ -110,7 +110,7 @@ public class AplicacionBean {
     	
     	TreeNode proveedores = new DefaultTreeNode(new Pagina(13,"Proveedores",null,null,"Submodulo de Proveedores"), compras);
     	TreeNode proveedoresListado = new DefaultTreeNode(new Pagina(14,"Envios de Proveedor","/WEB-INF/web/content/pantallas/Compras/Compras-EnviosDeProveedor.xhtml","enviosDeProveedorBean","Pagina de Listado de Proveedores"),proveedores);
-    	TreeNode proveedoresEnvios = new DefaultTreeNode(new Pagina(14,"Listado de Proveedor","/WEB-INF/web/content/pantallas/Compras/Compras-ListaProveedores.xhtml","listadoProveedoresBean","Pagina de Listado de Proveedores"),proveedores);
+    	TreeNode proveedoresEnvios = new DefaultTreeNode(new Pagina(14,"Listado de Proveedor","/WEB-INF/web/content/pantallas/Compras/Compras-CatalogoProveedores.xhtml","catalogoProveedoresBean","Pagina de Listado de Proveedores"),proveedores);
     	
     	TreeNode ventasContado = new DefaultTreeNode(new Pagina(15,"Contado","/WEB-INF/web/content/pantallas/Ventas/Ventas-AlContado.xhtml",null,"Pagina de Ventas de Contado"),ventas);
     	TreeNode ventasCredito = new DefaultTreeNode(new Pagina(16,"Credito","/WEB-INF/web/content/pantallas/Ventas/Ventas-ACredito.xhtml",null,"Pagina de Ventas a credito"),ventas);
