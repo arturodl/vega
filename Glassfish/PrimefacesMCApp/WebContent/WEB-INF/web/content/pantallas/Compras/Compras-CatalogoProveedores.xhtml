@@ -7,6 +7,10 @@
     id="comprasCatalogoProveedores-divPrincipal">
     
     <style>
+       
+		#comprasCatalogoProveedores-formPrincipal\:comprasCatalogoProveedores-txtNombreProveedor {
+    		width: 88%;
+		}
         #comprasCatalogoProveedores-divPrincipal, #comprasCatalogoProveedores-formPrincipal {
 		    font-size: 14px;
 		    height: 100%;
@@ -43,25 +47,36 @@
     
     <h:form id="comprasCatalogoProveedores-formPrincipal">
         <div id="comprasCatalogoProveedores-divEncabezado">
-        	<h:outputLabel id="comprasCatalogoProveedores-lblBienvenidosAProveedores" value="#{catalogoProveedoresBean.msgBienvenida}" />
+        	<h:outputLabel id="comprasCatalogoProveedores-lblBienvenidosAProveedores" value="#{catalogoProveedoresBean.msgBienvenida}" class="lblTituloPagina" />
    	 	</div>
    	 	
    	 	<div id="comprasCatalogoProveedores-divColumnaIzq">
+   	 		<div id="comprasCatalogoProveedores-divBotones" style="overflow:hidden; margin-right:30px;">
+   	 			<p:commandButton id="comprasCatalogoProveedores-btnCancelar" value="Cancelar" actionListener="#{catalogoProveedoresBean.cancelar}"
+   	        		process="@form" update="@form" style="float: right;" disabled="#{catalogoProveedoresBean.deshabilitarBtnCancelar}"/>   	 			
+   	 			<p:commandButton id="comprasCatalogoProveedores-btnNuevo" value="#{catalogoProveedoresBean.etiquetaBtnGuardar}" actionListener="#{catalogoProveedoresBean.guardar}"
+   	        		process="@form" update="@form" style="float: right;" disabled="#{catalogoProveedoresBean.deshabilitarBtnGuardar}"/>
+   	 			<p:commandButton id="comprasCatalogoProveedores-btnGuardar" value="Nuevo" actionListener="#{catalogoProveedoresBean.nuevo}"
+   	        		process="@form" update="@form" style="float: right;" disabled="#{catalogoProveedoresBean.deshabilitarBtnNuevo}"/>
+   	        </div>
    	 	    <div id="comprasCatalogoProveedores-divInfoProveedor" class="divGeneral">
-   	 	        <label id="comprasCatalogoProveedores-lblInfoProveedor" />
+   	 	        <label id="comprasCatalogoProveedores-lblInfoProveedor" class="lblDivGeneral"> Datos del Proveedor</label>
 		  	 	<ul class="ulGeneral">
 		  	 		<li> <h:outputLabel id="comprasCatalogoProveedores-lblNumeroCuenta" value="Numero de Cuenta: " /> </li>
-		  	 		<li> <p:inputText id="comprasCatalogoProveedores-txtNumeroCuenta" value="#{catalogoProveedoresBean.numeroDeCuenta}" size="30" maxlength="30"/> </li>   	 		
+		  	 		<li> <p:inputText id="comprasCatalogoProveedores-txtNumeroCuenta" value="#{catalogoProveedoresBean.numeroDeCuenta}" size="30" maxlength="30"
+		  	 					disabled="#{catalogoProveedoresBean.deshabilitarNumeroCuenta}"/> </li>   	 		
 		  	 	</ul>
 		  	 	
 		  	 	<ul class="ulGeneral">
 		  	 		<li> <h:outputLabel id="comprasCatalogoProveedores-lblNombreProveedor" value="Nombre Proveedor: " /> </li>
-		  	 		<li> <p:inputText id="comprasCatalogoProveedores-txtNombreProveedor" value="#{catalogoProveedoresBean.nombre}" size="50" maxlength="100"/> </li>
+		  	 		<li> <p:inputText id="comprasCatalogoProveedores-txtNombreProveedor" value="#{catalogoProveedoresBean.nombre}" size="50" maxlength="100"
+		  	 					disabled="#{catalogoProveedoresBean.deshabilitarCampo}"/> </li>
 		  	 	</ul>
 		  	 	
 		  	 	<ul class="ulGeneral">
 		  	 		<li> <h:outputLabel id="comprasCatalogoProveedores-lblCalificacionCredito" value="CalificacionCredito: " /> </li>
-		  	 		<li> <p:selectOneMenu id="comprasCatalogoProveedores-listCalificacionCredito" value="#{catalogoProveedoresBean.calificacionDeCredito}" >
+		  	 		<li> <p:selectOneMenu id="comprasCatalogoProveedores-listCalificacionCredito" value="#{catalogoProveedoresBean.calificacionDeCredito}" 
+		  	 					disabled="#{catalogoProveedoresBean.deshabilitarCampo}">
 		  	 		  		<f:selectItems value="#{catalogoProveedoresBean.listaCalificaciones}" var="calificacion" itemLabel="#{calificacion}" 
 		  	 		  					itemValue="#{calificacion}"/>
 		  	 		     </p:selectOneMenu> 
@@ -70,7 +85,8 @@
 		  	 	
 		  	 	<ul class="ulGeneral">
 		  	 	  <li> <h:outputLabel id="comprasCatalogoProveedores-lblProveedorPreferido" value="Proveedor Preferido: " /> </li>
-		  	 	  <li> <p:selectOneButton id="comprasCatogoProveedores-selectProveedorPreferido" value="#{catalogoProveedoresBean.proveedorPreferido}">
+		  	 	  <li> <p:selectOneButton id="comprasCatogoProveedores-selectProveedorPreferido" value="#{catalogoProveedoresBean.proveedorPreferido}"
+		  	 	  			disabled="#{catalogoProveedoresBean.deshabilitarCampo}">
 		  	 	  			<f:selectItem itemLabel="Si" itemValue="#{true}"/>
 		  	 	  			<f:selectItem itemLabel="No" itemValue="#{false}"/>
 		  	 	       </p:selectOneButton>
@@ -79,7 +95,8 @@
 		  	 	
 		  	 	<ul class="ulGeneral">
 		  	 	  <li> <h:outputLabel id="comprasCatalogoProveedores-lblProveedorActivo" value="Proveedor Activo: " /> </li>
-		  	 	  <li> <p:selectOneButton id="comprasCatalogoProveedores-selectProveedorActivo" value="#{catalogoProveedoresBean.proveedorActivo}">
+		  	 	  <li> <p:selectOneButton id="comprasCatalogoProveedores-selectProveedorActivo" value="#{catalogoProveedoresBean.proveedorActivo}"
+		  	 	   				disabled="#{catalogoProveedoresBean.deshabilitarCampo}">
 		  	 	  			<f:selectItem itemLabel="Si" itemValue="#{true}"/>
 		  	 	  			<f:selectItem itemLabel="No" itemValue="#{false}"/>
 		  	 	       </p:selectOneButton>
@@ -88,46 +105,73 @@
 	  	 	</div>
 	  	 	
    	 		<div id="comprasCatalogoProveedores-divInfoDireccion" class="divGeneral">
+   	 		    <label id="comprasCatalogoProveedores-lblDireccionProveedor" class="lblDivGeneral" > Direccion del Proveedor</label>
    	            <ul class="ulGeneral" style="width: 92%;">
-   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblDireccion1" value="Direccion 1" /> </li>
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblDireccion1" value="Direccion 1:" /> </li>
    	            	<li style="width: 70%;"> 
    	            		 <p:inputTextarea id="comprasCatalogoProveedores-txtAreaDireccion1" value="#{catalogoProveedoresBean.direccion1}"
-   	            		 		style="width:100%;">
+   	            		 		style="width:100%;" disabled="#{catalogoProveedoresBean.deshabilitarCampo}">
    	            		 </p:inputTextarea> 
    	                </li>   	                
    	            </ul>
    	            <ul class="ulGeneral" style="width: 92%;">
-   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblDireccion2" value="Direccion 2" /> </li>
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblDireccion2" value="Direccion 2:" /> </li>
    	            	<li style="width:70%;"> 
    	            		 <p:inputTextarea id="comprasCatalogoProveedores-txtAreaDireccion2" value="#{catalogoProveedoresBean.direccion2}"
-   	            		 		style="width:100%;"> 
+   	            		 		style="width:100%;" disabled="#{catalogoProveedoresBean.deshabilitarCampo}"> 
    	            		 </p:inputTextarea>   	            	 
    	            	</li>
    	            </ul>
    	            <ul class="ulGeneral">
    	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblCiudad" value="Ciudad: " /> </li>
-   	            	<li> <p:inputText id="comprasCatalogoProveedores-txtCiudad" value="#{catalogoProveedoresBean.ciudad}"/>
+   	            	<li> <p:inputText id="comprasCatalogoProveedores-txtCiudad" value="#{catalogoProveedoresBean.ciudad}"
+   	            				disabled="#{catalogoProveedoresBean.deshabilitarCampo}"/>
    	            	</li>
    	            </ul>
    	            
    	            <ul class="ulGeneral">
-   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblEstados" value="Estados: "/> </li>
-   	            	<li> <p:selectOneMenu id="comprasCatalogoProveedores-listaEstados" >
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblEstados" value="Estado: "/> </li>
+   	            	<li> <p:selectOneMenu id="comprasCatalogoProveedores-listaEstados" disabled="#{catalogoProveedoresBean.deshabilitarCampo}">
    	            			<f:selectItems value="#{catalogoProveedoresBean.listaEstados}" var="estado" itemLabel="#{estado}" itemValue="#{estado}" />
    	            	     </p:selectOneMenu>
    	            	</li>
    	            </ul>
    	            <ul class="ulGeneral" >
-   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblCodigoPostal" value="Codigo Postal"/> </li>
-   	            	<li> <p:inputText id="comprasCatalogoProveedores-txtCodigoPostal" value="#{catalogoProveedoresBean.codigoPostal}" />
+   	            	<li> <h:outputLabel id="comprasCatalogoProveedores-lblCodigoPostal" value="Codigo Postal:"/> </li>
+   	            	<li> <p:inputText id="comprasCatalogoProveedores-txtCodigoPostal" value="#{catalogoProveedoresBean.codigoPostal}"
+   	            				disabled="#{catalogoProveedoresBean.deshabilitarCampo}" />
    	            	</li>
    	            </ul>
    	        </div> 
-   	        <p:commandButton id="comprasCatalogoProveedores" value="Guardar" actionListener="#{catalogoProveedoresBean.guardar}"
-   	        	process="@form" update="@this"/>
+   	        
    	    </div>
    	    <div id="comprasCatalogoProveedores-divColumnaDer">
-   	      
+   	    	<div id="comprasCatalogoProveedores-divBotonesModificar" style="overflow:hidden; margin-right:30px;">
+   	 			<p:commandButton id="comprasCatalogoProveedores-btnModificar" value="Modificar" actionListener="#{catalogoProveedoresBean.modificar}"
+   	        		process="@this comprasCatalogoProveedores-tablaProveedores" update="@form" disabled="#{catalogoProveedoresBean.deshabilitarBtnModificar}" />
+   	 			<p:commandButton id="comprasCatalogoProveedores-btnEliminar" value="Eliminar" actionListener="#{catalogoProveedoresBean.eliminar}"
+   	        		process="@this comprasCatalogoProveedores-tablaProveedores" update="@form" disabled="#{catalogoProveedoresBean.deshabilitarBtnEliminar}" />
+   	        </div>
+   	       <div id="comprasCatalogoProveedores-divTablaProveedores" class="divGeneral" style="margin: 0px 30px 0px 0px; height: 90%; overflow:scroll;	">
+   	      	<p:dataTable id="comprasCatalogoProveedores-tablaProveedores" var="proveedor" value="#{catalogoProveedoresBean.listaProveedores}" selectionMode="single"
+   	      		selection="#{catalogoProveedoresBean.proveedorSeleccionado}" rowKey="#{proveedor.accountNumber}">
+   	      		<p:column headerText="No. Cuenta">
+   	      			<h:outputText value="#{proveedor.accountNumber}" />
+   	      		</p:column>
+   	      		<p:column headerText="Proveedor">
+   	      			<h:outputText value="#{proveedor.name}"/>
+   	      		</p:column>
+   	      		<p:column headerText="Cal. Credito">
+   	      			<h:outputText value="#{proveedor.creditRating}" />
+   	      		</p:column>   	      		
+   	      		<p:column headerText="Preferido">
+   	      			<h:outputText value="#{proveedor.preferredVendorStatus == true? 'Si':'No' }" />
+   	      		</p:column>
+   	      		<p:column headerText="Activo">
+   	      			<h:outputText value="#{proveedor.activeFlag? 'Si':'No'}" />
+   	      		</p:column>
+   	      	</p:dataTable>
+   	       </div>
    	    </div>
     </h:form>
     

@@ -12,15 +12,35 @@ html, body, #principalPlantilla-divPrincipal {
 }
 
 .ulGeneral {
-	display: inline-flex;
+    clear: both;
+    display: inline-block;
     list-style-type: none;
-    clear: both;    
+    padding: 0px 0px 0px 0px;
+    margin: 5px 0px 0px 5px;
+}
+
+.ulGeneral > li {
+    float: left;
 }
 
 .divGeneral {
 	background-color: white;
 	border: 1px solid #E6E6E6;
 	margin: 0px 30px 10px 30px;
+}
+
+.divGeneral .lblDivGeneral {
+    display: block;
+    margin: 5px 0 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.lblTituloPagina{
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0081c2;
 }
 
 /** Terminan Los Estilos Generales que son usados por todos los componentes y elementos del sistema **/

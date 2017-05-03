@@ -10,6 +10,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import com.model.data.app.purchasing.Vendor;
+
 @ManagedBean(name="catalogoProveedoresBean")
 @ViewScoped
 public class CatalogoProveedoresBean implements Serializable {
@@ -36,27 +38,100 @@ public class CatalogoProveedoresBean implements Serializable {
 	private List<String> listaEstados = Arrays.asList("Aguascalientes","Ciudad de Mexico","Jalisco","Nuevo Leon","Veracruz");
 	private String codigoPostal;
 	
+	//Listado de proveedores para llenar la tabla
+	private List<Vendor> listaProveedores;
+	private Vendor proveedorSeleccionado;
+	
+	//Etiquetas botones
+	private String etiquetaBtnGuardar;
+	//Valores para deshabilitar los campos;
+	private boolean deshabilitarNumeroCuenta = true;
+	private boolean deshabilitarBtnNuevo = false;
+	private boolean deshabilitarBtnGuardar = true;
+	private boolean deshabilitarBtnCancelar = true;
+	private boolean deshabilitarBtnModificar = false;
+	private boolean deshabilitarBtnEliminar = false;
+	private boolean deshabilitarCampo = true;
+	
+	
 	@PostConstruct
 	public void inicializar(){
 		System.out.println("Inicializando listado de proveedores");
 		this.msgBienvenida = "Bienvenido a Listado de Proveedores";
 		this.proveedorActivo = false;
 		this.proveedorPreferido = false;
+		this.setEtiquetaBtnGuardar("Guardar");
+		crearListadoProveedores();
 		System.out.println("Finalizando listado de proveedores");
 	}
 	
-	public void guardar(ActionEvent event){
-		System.out.println("Guardando datos");
+	public void crearListadoProveedores(){		
+		this.listaProveedores = new ArrayList<Vendor>();
+		Vendor proveedor = null;
+		for(int i = 0; i < 20; i++ ){
+			proveedor = new Vendor();
+			proveedor.setAccountNumber("Cuenta000000"+i);
+			proveedor.setName("Proveedor Numero 0"+i);
+			proveedor.setCreditRating( (short)i );
+			proveedor.setActiveFlag(true);
+			proveedor.setPreferredVendorStatus(false);
+			this.listaProveedores.add(proveedor);
+		}
+		proveedor = null;
+		System.out.println("Total de proveedores creados: "+this.listaProveedores.size());
 	}
 	
-	public void verListado(ActionEvent event){
-		System.out.println("Resumiendo y viendo la informacion del proveedor");
-		System.out.println("Numero de cuenta insertado: " + this.numeroDeCuenta);
-		System.out.println("Nombre del proveedor: " + this.nombre);
-		System.out.println("Calificacion de Credito del proveedor: " + this.calificacionDeCredito);
-		System.out.println("Proveedor Preferido: " + this.proveedorPreferido);
-		System.out.println("Proveedor Activo: " + this.proveedorActivo);
-		System.out.println("Terminando de ver la informacion del proveedor");
+	public void nuevo(ActionEvent evento){
+		System.out.println("Habilitando captura nuevo proveedor");
+		this.setEtiquetaBtnGuardar("Guardar");
+		this.deshabilitarNumeroCuenta = false;
+		this.deshabilitarCampo = false;
+		deshabilitarBotonesPrincipales(true);
+		deshabilitarBotonesCaptura(false);			
+	}	
+	
+	public void guardar(ActionEvent event){
+		System.out.println("Guardando datos");
+		restaurarAccesoBotonesyCampos();
+	}
+	
+	public void cancelar(ActionEvent evento){
+		System.out.println("Limpiando y cancelando" );
+		restaurarAccesoBotonesyCampos();
+	}
+	
+	public void modificar(ActionEvent evento){
+		System.out.println("Modificar datos proveedor seleccionado");
+		System.out.println("Proveedor Seleccionado: "+this.proveedorSeleccionado.getAccountNumber());
+		this.setEtiquetaBtnGuardar("Actualizar");
+		this.deshabilitarNumeroCuenta = true;
+		this.deshabilitarCampo = false;
+		deshabilitarBotonesPrincipales(true);
+		deshabilitarBotonesCaptura(false);
+	}
+	
+	public void eliminar(ActionEvent evento){
+		System.out.println("Eliminar Proveedor Seleccionado");
+		System.out.println("Proveedor Seleccionado: "+this.proveedorSeleccionado.getAccountNumber());
+	}
+	
+	public void restaurarAccesoBotonesyCampos(){
+		this.setEtiquetaBtnGuardar("Guardar");
+		this.deshabilitarNumeroCuenta = true;
+		this.deshabilitarCampo = true;
+		deshabilitarBotonesPrincipales(false);
+		deshabilitarBotonesCaptura(true);
+	}
+	
+	public void deshabilitarBotonesPrincipales(boolean deshabilitado){
+		this.deshabilitarBtnNuevo = deshabilitado;
+		this.deshabilitarBtnModificar = deshabilitado;
+		this.deshabilitarBtnEliminar = deshabilitado;	
+	}
+	
+	public void deshabilitarBotonesCaptura(boolean deshabilitado){
+		this.deshabilitarBtnGuardar = deshabilitado;
+		this.deshabilitarBtnCancelar = deshabilitado;		
 	}
 	
 	public void setMsgBienvenida(String msgBienvenida){
@@ -168,5 +243,86 @@ public class CatalogoProveedoresBean implements Serializable {
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
+
+	public List<Vendor> getListaProveedores() {
+		return listaProveedores;
+	}
+
+	public void setListaProveedores(List<Vendor> listaProveedores) {
+		this.listaProveedores = listaProveedores;
+	}
+
+	public Vendor getProveedorSeleccionado() {
+		return proveedorSeleccionado;
+	}
+
+	public void setProveedorSeleccionado(Vendor proveedorSeleccionado) {
+		this.proveedorSeleccionado = proveedorSeleccionado;
+	}
+
+	public boolean isDeshabilitarNumeroCuenta() {
+		return deshabilitarNumeroCuenta;
+	}
+
+	public void setDeshabilitarNumeroCuenta(boolean deshabilitarNumeroCuenta) {
+		this.deshabilitarNumeroCuenta = deshabilitarNumeroCuenta;
+	}
+
+	public boolean isDeshabilitarBtnNuevo() {
+		return deshabilitarBtnNuevo;
+	}
+
+	public void setDeshabilitarBtnNuevo(boolean deshabilitarBtnNuevo) {
+		this.deshabilitarBtnNuevo = deshabilitarBtnNuevo;
+	}
+
+	public boolean isDeshabilitarBtnModificar() {
+		return deshabilitarBtnModificar;
+	}
+
+	public void setDeshabilitarBtnModificar(boolean deshabilitarBtnModificar) {
+		this.deshabilitarBtnModificar = deshabilitarBtnModificar;
+	}
+
+	public boolean isDeshabilitarBtnEliminar() {
+		return deshabilitarBtnEliminar;
+	}
+
+	public void setDeshabilitarBtnEliminar(boolean deshabilitarBtnEliminar) {
+		this.deshabilitarBtnEliminar = deshabilitarBtnEliminar;
+	}
+
+	public boolean isDeshabilitarBtnCancelar() {
+		return deshabilitarBtnCancelar;
+	}
+
+	public void setDeshabilitarBtnCancelar(boolean deshabilitarBtnCancelar) {
+		this.deshabilitarBtnCancelar = deshabilitarBtnCancelar;
+	}
+
+	public boolean isDeshabilitarCampo() {
+		return deshabilitarCampo;
+	}
+
+	public void setDeshabilitarCampo(boolean deshabilitarCampo) {
+		this.deshabilitarCampo = deshabilitarCampo;
+	}
+
+	public boolean isDeshabilitarBtnGuardar() {
+		return deshabilitarBtnGuardar;
+	}
+
+	public void setDeshabilitarBtnGuardar(boolean deshabilitarBtnGuardar) {
+		this.deshabilitarBtnGuardar = deshabilitarBtnGuardar;
+	}
+
+	public String getEtiquetaBtnGuardar() {
+		return etiquetaBtnGuardar;
+	}
+
+	public void setEtiquetaBtnGuardar(String etiquetaBtnGuardar) {
+		this.etiquetaBtnGuardar = etiquetaBtnGuardar;
+	}
+	
 	
 }
