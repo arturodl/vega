@@ -6,6 +6,7 @@
 	
 	<!--  contextos y definicion de beans para los data services -->
 	<import resource="context/ds/dsRH.xml"/>
+	<import resource="context/ds/dsPurchasing.xml"/>
 	
 	<!-- contextos y definicion de beans para los business services -->
 	<import resource="context/bs/bsCuentasPorCobrar.xml"/>
@@ -17,6 +18,7 @@
 	<import resource="context/fs/fsFactibilidades.xml"/>
 	<import resource="context/fs/fsFacturacion.xml"/>
 	<import resource="context/fs/fsRH.xml"/>
+	<import resource="context/fs/fsPurchasing.xml"/>
 	
 	
 	<!-- definicion de beans, datasources y transaccionalidad -->

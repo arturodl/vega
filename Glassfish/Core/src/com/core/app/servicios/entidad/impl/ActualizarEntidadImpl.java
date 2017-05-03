@@ -13,6 +13,12 @@ public class ActualizarEntidadImpl implements ServicioEntidad{
 	@Override
 	public RespuestaEntidad ejecutar(PeticionEntidad peticion) {
 		RespuestaEntidad respuesta = new RespuestaEntidad();
+		try{
+			entityManager.merge(respuesta.getEntidad());
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println("Hubo un error al actualizar: "+e.getCause());
+		}
 		return respuesta;
 	}
 

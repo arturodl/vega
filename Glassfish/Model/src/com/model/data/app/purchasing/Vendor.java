@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.core.app.modelo.Entidad;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,7 +35,8 @@ public class Vendor extends Entidad implements Serializable {
 	private short creditRating;
 
 	@Column(name="ModifiedDate")
-	private Timestamp modifiedDate;
+	@Temporal(TemporalType.DATE)
+	private Date modifiedDate;
 
 	@Column(name="Name")
 	private String name;
@@ -84,14 +86,6 @@ public class Vendor extends Entidad implements Serializable {
 		this.creditRating = creditRating;
 	}
 
-	public Timestamp getModifiedDate() {
-		return this.modifiedDate;
-	}
-
-	public void setModifiedDate(Timestamp modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
-
 	public String getName() {
 		return this.name;
 	}
@@ -136,6 +130,14 @@ public class Vendor extends Entidad implements Serializable {
 		productVendor.setVendor(null);
 
 		return productVendor;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 
 }

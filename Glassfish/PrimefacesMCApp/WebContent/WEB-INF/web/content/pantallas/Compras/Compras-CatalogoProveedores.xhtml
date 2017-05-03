@@ -154,7 +154,8 @@
    	        </div>
    	       <div id="comprasCatalogoProveedores-divTablaProveedores" class="divGeneral" style="margin: 0px 30px 0px 0px; height: 90%; overflow:scroll;	">
    	      	<p:dataTable id="comprasCatalogoProveedores-tablaProveedores" var="proveedor" value="#{catalogoProveedoresBean.listaProveedores}" selectionMode="single"
-   	      		selection="#{catalogoProveedoresBean.proveedorSeleccionado}" rowKey="#{proveedor.accountNumber}">
+   	      		selection="#{catalogoProveedoresBean.proveedorSeleccionado}" rowKey="#{proveedor.accountNumber}"
+   	      		disabledSelection="#{catalogoProveedoresBean.deshabilitarSeleccionProveedor}">
    	      		<p:column headerText="No. Cuenta">
    	      			<h:outputText value="#{proveedor.accountNumber}" />
    	      		</p:column>

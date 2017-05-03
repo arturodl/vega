@@ -21,8 +21,9 @@ public class CatalogoProveedoresBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	//Datos del Proveedor
 	private String msgBienvenida;
+	
+	//Datos del Proveedor	
 	private String numeroDeCuenta;
 	private String nombre;
 	private int calificacionDeCredito;
@@ -52,6 +53,7 @@ public class CatalogoProveedoresBean implements Serializable {
 	private boolean deshabilitarBtnModificar = false;
 	private boolean deshabilitarBtnEliminar = false;
 	private boolean deshabilitarCampo = true;
+	private boolean deshabilitarSeleccionProveedor= true;
 	
 	
 	@PostConstruct
@@ -86,6 +88,7 @@ public class CatalogoProveedoresBean implements Serializable {
 		this.setEtiquetaBtnGuardar("Guardar");
 		this.deshabilitarNumeroCuenta = false;
 		this.deshabilitarCampo = false;
+		this.deshabilitarSeleccionProveedor = true;
 		deshabilitarBotonesPrincipales(true);
 		deshabilitarBotonesCaptura(false);			
 	}	
@@ -103,11 +106,23 @@ public class CatalogoProveedoresBean implements Serializable {
 	public void modificar(ActionEvent evento){
 		System.out.println("Modificar datos proveedor seleccionado");
 		System.out.println("Proveedor Seleccionado: "+this.proveedorSeleccionado.getAccountNumber());
-		this.setEtiquetaBtnGuardar("Actualizar");
-		this.deshabilitarNumeroCuenta = true;
-		this.deshabilitarCampo = false;
-		deshabilitarBotonesPrincipales(true);
-		deshabilitarBotonesCaptura(false);
+		
+		if(this.proveedorSeleccionado !=null){
+			this.setEtiquetaBtnGuardar("Actualizar");
+			this.deshabilitarNumeroCuenta = true;
+			this.deshabilitarCampo = false;
+			this.deshabilitarSeleccionProveedor = true;
+			deshabilitarBotonesPrincipales(true);
+			deshabilitarBotonesCaptura(false);
+			
+			this.numeroDeCuenta = this.proveedorSeleccionado.getAccountNumber();
+			this.nombre = this.proveedorSeleccionado.getName();
+			this.calificacionDeCredito = this.proveedorSeleccionado.getCreditRating();
+			this.proveedorActivo = this.proveedorSeleccionado.getActiveFlag();
+			this.proveedorPreferido = this.proveedorSeleccionado.getPreferredVendorStatus();
+			
+		}else
+			System.out.println("Seleccione un proveedor antes de continuar");
 	}
 	
 	public void eliminar(ActionEvent evento){
@@ -119,6 +134,7 @@ public class CatalogoProveedoresBean implements Serializable {
 		this.setEtiquetaBtnGuardar("Guardar");
 		this.deshabilitarNumeroCuenta = true;
 		this.deshabilitarCampo = true;
+		this.deshabilitarSeleccionProveedor = false;
 		deshabilitarBotonesPrincipales(false);
 		deshabilitarBotonesCaptura(true);
 	}
@@ -322,6 +338,14 @@ public class CatalogoProveedoresBean implements Serializable {
 
 	public void setEtiquetaBtnGuardar(String etiquetaBtnGuardar) {
 		this.etiquetaBtnGuardar = etiquetaBtnGuardar;
+	}
+
+	public boolean isDeshabilitarSeleccionProveedor() {
+		return deshabilitarSeleccionProveedor;
+	}
+
+	public void setDeshabilitarSeleccionProveedor(boolean deshabilitarSeleccionProveedor) {
+		this.deshabilitarSeleccionProveedor = deshabilitarSeleccionProveedor;
 	}
 	
 	

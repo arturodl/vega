@@ -3,9 +3,12 @@ package com.model.data.app.person;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.core.app.modelo.Entidad;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -22,16 +25,20 @@ public class BusinessEntity extends Entidad implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="BusinessEntityID")
-	@Basic(optional=true)
+	@Basic(optional=false)
 	private int businessEntityID;
 	
 	@Column(name="BusinessEntityID", insertable=false, updatable=false)
-	@Basic(optional=true)
+	@Basic(optional=false)
 	private int id;
 
 	@Column(name="ModifiedDate")
-	private Timestamp modifiedDate;
-
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modifiedDate;
+   
+	//@GenericGenerator(name="generator", strategy="guid", parameters={})
+	//@GeneratedValue(generator="generator")
+	@Column(columnDefinition="rowguid", insertable=false, updatable=false)
 	private String rowguid;
 
 	//bi-directional many-to-one association to BusinessEntityAddress
@@ -49,27 +56,11 @@ public class BusinessEntity extends Entidad implements Serializable {
 	public BusinessEntity() {
 	}
 
-	public int getBusinessEntityID() {
-		return this.businessEntityID;
-	}
-
-	public void setBusinessEntityID(int businessEntityID) {
-		this.businessEntityID = businessEntityID;
-	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Timestamp getModifiedDate() {
+	public Date getModifiedDate() {
 		return this.modifiedDate;
 	}
 
-	public void setModifiedDate(Timestamp modifiedDate) {
+	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 
@@ -131,6 +122,22 @@ public class BusinessEntity extends Entidad implements Serializable {
 
 	public void setPerson(Person person) {
 		this.person = person;
+	}
+
+	public int getBusinessEntityID() {
+		return businessEntityID;
+	}
+
+	public void setBusinessEntityID(int businessEntityID) {
+		this.businessEntityID = businessEntityID;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
