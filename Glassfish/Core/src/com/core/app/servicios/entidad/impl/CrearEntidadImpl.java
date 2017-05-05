@@ -18,11 +18,15 @@ public class CrearEntidadImpl implements ServicioEntidad{
 		try{
 			System.out.println("Antes de persistir");
 			entityManager.persist(peticion.getEntidad());
+			entityManager.flush();
+			entityManager.detach(peticion.getEntidad());
+			respuesta.setEntidad(peticion.getEntidad());
 			System.out.println("Despues de persistir");
 			System.out.println("El nuevo departamento es: "+peticion.getEntidad());
 		}catch(Exception e){
-			System.out.println("Error:" +e.getCause());
+			System.out.println("Error:" +e.getMessage());
 			e.printStackTrace();
+			
 		}
 		return respuesta;
 	}

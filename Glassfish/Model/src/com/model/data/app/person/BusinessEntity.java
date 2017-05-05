@@ -6,6 +6,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.core.app.modelo.Entidad;
+import com.model.data.app.purchasing.Vendor;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -50,11 +51,28 @@ public class BusinessEntity extends Entidad implements Serializable {
 	private List<BusinessEntityContact> businessEntityContacts;
 
 	//bi-directional one-to-one association to Person
-	@OneToOne(mappedBy="businessEntity", fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="businessEntity")
 	private Person person;
-
+	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy = "businessEntity")
+	private Vendor vendor;
+	
 	public BusinessEntity() {
 	}
+	
+	
+
+	public Vendor getVendor() {
+		return vendor;
+	}
+
+
+
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+
+
 
 	public Date getModifiedDate() {
 		return this.modifiedDate;

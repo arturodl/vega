@@ -3,7 +3,12 @@ package com.model.data.app.purchasing;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import com.core.app.modelo.Entidad;
+import com.model.data.app.person.BusinessEntity;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -20,12 +25,8 @@ import java.util.List;
 public class Vendor extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="BusinessEntityID")
-	private int businessEntityID;
 
-	@Column(name="AccountNumber")
+	@Column(name="AccountNumber") 
 	private String accountNumber;
 
 	@Column(name="ActiveFlag")
@@ -35,7 +36,7 @@ public class Vendor extends Entidad implements Serializable {
 	private short creditRating;
 
 	@Column(name="ModifiedDate")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date modifiedDate;
 
 	@Column(name="Name")
@@ -48,19 +49,25 @@ public class Vendor extends Entidad implements Serializable {
 	private String purchasingWebServiceURL;
 
 	//bi-directional many-to-one association to ProductVendor
-	@OneToMany(mappedBy="vendor", fetch=FetchType.LAZY)
+	@JoinColumn(name="businessEntityId", referencedColumnName="businessEntityId")
+	@OneToMany(fetch=FetchType.LAZY)
 	private List<ProductVendor> productVendors;
-
+	
+	
+	
+	@Id
+	@OneToOne
+	@JoinColumn(name = "businessEntityId",referencedColumnName="businessEntityId")
+	private BusinessEntity businessEntity;
+	
 	public Vendor() {
 	}
+	
+	
+	
 
-	public int getBusinessEntityID() {
-		return this.businessEntityID;
-	}
 
-	public void setBusinessEntityID(int businessEntityID) {
-		this.businessEntityID = businessEntityID;
-	}
+
 
 	public String getAccountNumber() {
 		return this.accountNumber;
@@ -138,6 +145,19 @@ public class Vendor extends Entidad implements Serializable {
 
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
+	}
+
+
+
+	public BusinessEntity getBusinessEntity() {
+		return businessEntity;
+	}
+
+
+
+	public void setBusinessEntity(BusinessEntity businessEntity) {
+		this.businessEntity = businessEntity;
+	
 	}
 
 }

@@ -51,7 +51,7 @@ public class ProductVendor extends Entidad implements Serializable {
 
 	//bi-directional many-to-one association to Vendor
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="BusinessEntityID", insertable=false, updatable=false)
+	@JoinColumn(name="BusinessEntityID", referencedColumnName="BusinessEntityID", insertable=false, updatable=false)
 	private Vendor vendor;
 
 	public ProductVendor() {

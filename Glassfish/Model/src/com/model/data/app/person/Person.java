@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.core.app.modelo.Entidad;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,7 +46,8 @@ public class Person extends Entidad implements Serializable {
 	private String middleName;
 
 	@Column(name="ModifiedDate")
-	private Timestamp modifiedDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modifiedDate;
 
 	@Column(name="NameStyle")
 	private boolean nameStyle;
@@ -53,6 +55,7 @@ public class Person extends Entidad implements Serializable {
 	@Column(name="PersonType")
 	private String personType;
 
+	@Column(columnDefinition="rowguid", insertable=false, updatable=false)
 	private String rowguid;
 
 	@Column(name="Suffix")
@@ -141,11 +144,11 @@ public class Person extends Entidad implements Serializable {
 		this.middleName = middleName;
 	}
 
-	public Timestamp getModifiedDate() {
+	public Date getModifiedDate() {
 		return this.modifiedDate;
 	}
 
-	public void setModifiedDate(Timestamp modifiedDate) {
+	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 

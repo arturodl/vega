@@ -1,5 +1,6 @@
 package com.services.data.app.purchasing.impl;
 
+import com.core.app.otd.RespuestaEntidad;
 import com.core.app.servicios.entidad.ServicioEntidad;
 import com.obj.transf.datos.app.purchasing.CrearVendorPeticion;
 import com.obj.transf.datos.app.purchasing.CrearVendorRespuesta;
@@ -12,9 +13,11 @@ public class CrearVendorImpl implements CrearVendor{
 	@Override
 	public CrearVendorRespuesta ejecutar(CrearVendorPeticion peticion) {
 		// TODO Auto-generated method stub
-		CrearVendorRespuesta respuesta = null;
+		CrearVendorRespuesta respuesta = new CrearVendorRespuesta();
 		try{
-			crearEntidad.ejecutar(peticion);
+			RespuestaEntidad respuestaEntidad = null;
+			respuestaEntidad = crearEntidad.ejecutar(peticion);
+			respuesta.setEntidad(respuestaEntidad.getEntidad() );
 		}catch(Exception e){
 			e.printStackTrace();
 			System.out.println("Hubo un error: "+e.getCause());
