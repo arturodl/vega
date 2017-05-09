@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.core.app.modelo.Entidad;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,32 +24,33 @@ public class AddressType extends Entidad implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="AddressTypeID")
 	@Basic(optional=false)
-	private int addressTypeID;
+	private Integer addressTypeID;
 	
 	@Column(name="AddressTypeID", insertable=false, updatable=false)
 	@Basic(optional=false)
 	private int id;
 
 	@Column(name="ModifiedDate")
-	private Timestamp modifiedDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Basic(optional=true)
+	private Date modifiedDate;
 
 	@Column(name="Name")
+	@Basic(optional=true)
 	private String name;
 
+	@Column(name="rowguid", insertable=false, updatable=false)
+	@Basic(optional=true)
 	private String rowguid;
-
-	//bi-directional many-to-one association to BusinessEntityAddress
-	@OneToMany(mappedBy="addressType", fetch=FetchType.LAZY)
-	private List<BusinessEntityAddress> businessEntityAddresses;
 
 	public AddressType() {
 	}
-
-	public int getAddressTypeID() {
+	
+	public Integer getAddressTypeID() {
 		return this.addressTypeID;
 	}
 
-	public void setAddressTypeID(int addressTypeID) {
+	public void setAddressTypeID(Integer addressTypeID) {
 		this.addressTypeID = addressTypeID;
 	}
 	
@@ -60,11 +62,11 @@ public class AddressType extends Entidad implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getModifiedDate() {
+	public Date getModifiedDate() {
 		return this.modifiedDate;
 	}
 
-	public void setModifiedDate(Timestamp modifiedDate) {
+	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 
@@ -84,7 +86,7 @@ public class AddressType extends Entidad implements Serializable {
 		this.rowguid = rowguid;
 	}
 
-	public List<BusinessEntityAddress> getBusinessEntityAddresses() {
+/*	public List<BusinessEntityAddress> getBusinessEntityAddresses() {
 		return this.businessEntityAddresses;
 	}
 
@@ -97,13 +99,13 @@ public class AddressType extends Entidad implements Serializable {
 		businessEntityAddress.setAddressType(this);
 
 		return businessEntityAddress;
-	}
+	} 
 
 	public BusinessEntityAddress removeBusinessEntityAddress(BusinessEntityAddress businessEntityAddress) {
 		getBusinessEntityAddresses().remove(businessEntityAddress);
 		businessEntityAddress.setAddressType(null);
 
 		return businessEntityAddress;
-	}
+	}*/
 
 }

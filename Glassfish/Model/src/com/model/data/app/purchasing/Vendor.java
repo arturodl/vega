@@ -24,7 +24,11 @@ import java.util.List;
 @Access(AccessType.FIELD)
 public class Vendor extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@OneToOne
+	@JoinColumn(name = "businessEntityId", referencedColumnName="businessEntityId")
+	private BusinessEntity businessEntity;
 
 	@Column(name="AccountNumber") 
 	private String accountNumber;
@@ -46,29 +50,17 @@ public class Vendor extends Entidad implements Serializable {
 	private boolean preferredVendorStatus;
 
 	@Column(name="PurchasingWebServiceURL")
+	@Basic(optional = true)
 	private String purchasingWebServiceURL;
 
 	//bi-directional many-to-one association to ProductVendor
 	@JoinColumn(name="businessEntityId", referencedColumnName="businessEntityId")
 	@OneToMany(fetch=FetchType.LAZY)
-	private List<ProductVendor> productVendors;
-	
-	
-	
-	@Id
-	@OneToOne
-	@JoinColumn(name = "businessEntityId",referencedColumnName="businessEntityId")
-	private BusinessEntity businessEntity;
+	private List<ProductVendor> productVendors;	
 	
 	public Vendor() {
 	}
 	
-	
-	
-
-
-
-
 	public String getAccountNumber() {
 		return this.accountNumber;
 	}
@@ -157,7 +149,6 @@ public class Vendor extends Entidad implements Serializable {
 
 	public void setBusinessEntity(BusinessEntity businessEntity) {
 		this.businessEntity = businessEntity;
-	
 	}
 
 }

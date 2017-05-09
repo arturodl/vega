@@ -21,6 +21,21 @@
     	<property name="entityManagerFactory" ref="entityManagerFactory" />  
    </bean> 
    
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" >
+       <property name="persistenceUnits">
+           <map>
+               <!--
+               add PersistenceUnit:
+                    persistence.xml anpassen
+                    web.xml persistence-unit-ref hinzufügen.
+                    fertig
+               -->
+               <entry key="Model" value="persistence/Model"/>               
+           </map>
+       </property>
+       <property name="defaultPersistenceUnitName" value="Model"/>
+    </bean>
+   
    <!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
    
    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
@@ -28,7 +43,7 @@
       <property name="persistenceUnitName" value="Model" />   
 	  <property name="jpaProperties">
           <props>
-            <!--  <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop> -->
+           <!--  <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop> --> 
             <prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.SunONETransactionManagerLookup</prop>
           </props>
       </property>    
@@ -40,21 +55,23 @@
    
    <tx:advice id="txTransaccional" transaction-manager="transactionManager" >
        <tx:attributes>
-         <tx:method name="ejecutar*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Throwable"/>
+         <tx:method name="ejecutar*" propagation="REQUIRED" rollback-for="Throwable"/>
        </tx:attributes>
    </tx:advice>
    
    <tx:advice id="txCRUD" transaction-manager="transactionManager" >
        <tx:attributes>
-         <tx:method name="ejecutar*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Throwable"/>
+         <tx:method name="ejecutar*" propagation="REQUIRED" rollback-for="Throwable"/>
        </tx:attributes>
    </tx:advice>
    
-   <aop:config> 
-     <aop:pointcut id="serviciosDatos" expression="execution (* com.services.data.app.rh.impl.*.*(..)) "/>
-     <aop:pointcut id="serviciosCRUD" expression="execution (* com.core.app.servicios.entidad.impl.*.*(..)) "/>
-     <aop:advisor advice-ref="txTransaccional" pointcut-ref="serviciosDatos"/>
+   <aop:config> 														
+   	 <aop:pointcut id="serviciosTransaccional" expression="execution (* com.services.business.app.*.impl.*.*(..))" />
+     <aop:pointcut id="serviciosDatos"         expression="execution (* com.services.data.app.*.impl.*.*(..)) "/>
+     <aop:pointcut id="serviciosCRUD"          expression="execution (* com.core.app.servicios.*.impl.*.*(..)) "/>
+     <aop:advisor advice-ref="txCRUD" pointcut-ref="serviciosDatos"/>
      <aop:advisor advice-ref="txCRUD" pointcut-ref="serviciosCRUD" />
+     <aop:advisor advice-ref="txTransaccional" pointcut-ref="serviciosTransaccional"/>
    </aop:config>
    
    <!-- Definicion de Servicios CRUD, que seran utilizados por los servicios de datos (DataServices) -->

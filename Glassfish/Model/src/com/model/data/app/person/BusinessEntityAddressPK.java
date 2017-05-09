@@ -12,13 +12,10 @@ public class BusinessEntityAddressPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="BusinessEntityID", insertable=false, updatable=false)
 	private int businessEntityID;
 
-	@Column(name="AddressID", insertable=false, updatable=false)
 	private int addressID;
 
-	@Column(name="AddressTypeID", insertable=false, updatable=false)
 	private int addressTypeID;
 
 	public BusinessEntityAddressPK() {

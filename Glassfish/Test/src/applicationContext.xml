@@ -12,6 +12,7 @@
 	<import resource="context/bs/bsCuentasPorCobrar.xml"/>
 	<import resource="context/bs/bsFactibilidades.xml"/>
 	<import resource="context/bs/bsFacturacion.xml"/>
+	<import resource="context/bs/bsPurchasing.xml"/>
 	
 	<!-- contextos y definicion de beans para los facade services -->
 	<import resource="context/fs/fsCuentasPorCobrar.xml"/>

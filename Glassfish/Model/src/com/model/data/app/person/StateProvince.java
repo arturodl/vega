@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.core.app.modelo.Entidad;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -33,11 +34,13 @@ public class StateProvince extends Entidad implements Serializable {
 	private boolean isOnlyStateProvinceFlag;
 
 	@Column(name="ModifiedDate")
-	private Timestamp modifiedDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modifiedDate;
 
 	@Column(name="Name")
 	private String name;
 
+	@Column(name="rowguid", insertable=false, updatable=false)
 	private String rowguid;
 
 	@Column(name="StateProvinceCode")
@@ -82,11 +85,11 @@ public class StateProvince extends Entidad implements Serializable {
 		this.isOnlyStateProvinceFlag = isOnlyStateProvinceFlag;
 	}
 
-	public Timestamp getModifiedDate() {
+	public Date getModifiedDate() {
 		return this.modifiedDate;
 	}
 
-	public void setModifiedDate(Timestamp modifiedDate) {
+	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 

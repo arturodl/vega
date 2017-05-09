@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.core.app.modelo.Entidad;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -39,11 +40,13 @@ public class Address extends Entidad implements Serializable {
 	private String city;
 
 	@Column(name="ModifiedDate")
-	private Timestamp modifiedDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modifiedDate;
 
 	@Column(name="PostalCode")
 	private String postalCode;
 
+	@Column(name="rowguid", insertable=false, updatable=false)
 	private String rowguid;
 
 	@Column(name="SpatialLocation")
@@ -55,11 +58,25 @@ public class Address extends Entidad implements Serializable {
 	private StateProvince stateProvince;
 
 	//bi-directional many-to-one association to BusinessEntityAddress
-	@OneToMany(mappedBy="address", fetch=FetchType.LAZY)
-	private List<BusinessEntityAddress> businessEntityAddresses;
+	@OneToOne(mappedBy="address", fetch= FetchType.LAZY)
+	private BusinessEntityAddress businessEntityAddress;
 
 	public Address() {
 	}
+	
+	
+
+	public BusinessEntityAddress getBusinessEntityAddress() {
+		return businessEntityAddress;
+	}
+
+
+
+	public void setBusinessEntityAddress(BusinessEntityAddress businessEntityAddress) {
+		this.businessEntityAddress = businessEntityAddress;
+	}
+
+
 
 	public int getAddressID() {
 		return this.addressID;
@@ -101,11 +118,11 @@ public class Address extends Entidad implements Serializable {
 		this.city = city;
 	}
 
-	public Timestamp getModifiedDate() {
+	public Date getModifiedDate() {
 		return this.modifiedDate;
 	}
 
-	public void setModifiedDate(Timestamp modifiedDate) {
+	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 
@@ -141,7 +158,7 @@ public class Address extends Entidad implements Serializable {
 		this.stateProvince = stateProvince;
 	}
 
-	public List<BusinessEntityAddress> getBusinessEntityAddresses() {
+	/*public List<BusinessEntityAddress> getBusinessEntityAddresses() {
 		return this.businessEntityAddresses;
 	}
 
@@ -161,6 +178,6 @@ public class Address extends Entidad implements Serializable {
 		businessEntityAddress.setAddress(null);
 
 		return businessEntityAddress;
-	}
+	}*/
 
 }

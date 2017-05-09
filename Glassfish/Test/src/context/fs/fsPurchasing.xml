@@ -10,5 +10,6 @@
 	 									 
 	   <bean id="purchasingFacade" class="com.services.facade.app.purchasing.impl.PurchasingImpl">
 	      	<property name="crearVendor" ref="crearVendor"/>
+	      	<property name="registrarProveedor" ref="registrarProveedor"/>
 	   </bean>		  
 </beans>

@@ -32,19 +32,17 @@ public class BusinessEntity extends Entidad implements Serializable {
 	@Column(name="BusinessEntityID", insertable=false, updatable=false)
 	@Basic(optional=false)
 	private int id;
+	
+	@Column(name="rowguid", insertable=false, updatable=false)
+	private String rowguid;
 
 	@Column(name="ModifiedDate")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modifiedDate;
-   
-	//@GenericGenerator(name="generator", strategy="guid", parameters={})
-	//@GeneratedValue(generator="generator")
-	@Column(columnDefinition="rowguid", insertable=false, updatable=false)
-	private String rowguid;
+	private Date modifiedDate;	
 
 	//bi-directional many-to-one association to BusinessEntityAddress
-	@OneToMany(mappedBy="businessEntity", fetch=FetchType.LAZY)
-	private List<BusinessEntityAddress> businessEntityAddresses;
+	@OneToOne(mappedBy="businessEntity", fetch=FetchType.LAZY)
+	private BusinessEntityAddress businessEntityAddress;
 
 	//bi-directional many-to-one association to BusinessEntityContact
 	@OneToMany(mappedBy="businessEntity", fetch=FetchType.LAZY)
@@ -54,13 +52,25 @@ public class BusinessEntity extends Entidad implements Serializable {
 	@OneToOne(mappedBy="businessEntity")
 	private Person person;
 	
-	@OneToOne(cascade=CascadeType.ALL, mappedBy = "businessEntity")
+	@OneToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy="businessEntity", fetch=FetchType.LAZY)
 	private Vendor vendor;
 	
 	public BusinessEntity() {
 	}
 	
 	
+
+	public BusinessEntityAddress getBusinessEntityAddress() {
+		return businessEntityAddress;
+	}
+
+
+
+	public void setBusinessEntityAddress(BusinessEntityAddress businessEntityAddress) {
+		this.businessEntityAddress = businessEntityAddress;
+	}
+
+
 
 	public Vendor getVendor() {
 		return vendor;
@@ -90,6 +100,7 @@ public class BusinessEntity extends Entidad implements Serializable {
 		this.rowguid = rowguid;
 	}
 
+	/*
 	public List<BusinessEntityAddress> getBusinessEntityAddresses() {
 		return this.businessEntityAddresses;
 	}
@@ -111,7 +122,7 @@ public class BusinessEntity extends Entidad implements Serializable {
 
 		return businessEntityAddress;
 	}
-
+*/
 	public List<BusinessEntityContact> getBusinessEntityContacts() {
 		return this.businessEntityContacts;
 	}
@@ -147,7 +158,7 @@ public class BusinessEntity extends Entidad implements Serializable {
 	}
 
 	public void setBusinessEntityID(int businessEntityID) {
-		this.businessEntityID = businessEntityID;
+		this.businessEntityID = businessEntityID;		
 	}
 
 	public int getId() {
