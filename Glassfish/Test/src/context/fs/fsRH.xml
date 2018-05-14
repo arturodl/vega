@@ -10,5 +10,6 @@
 	 									 
 	   <bean id="rhFacade" class="com.services.facade.app.rh.impl.RhImpl">
 	      	<property name="crearDepartamento" ref="crearDepartamento"/>
+	      	<property name="obtenerDepartamentosPorCriterio" ref="obtenerDepartamentosPorCriterio"/>
 	   </bean>		  
 </beans>

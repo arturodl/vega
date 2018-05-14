@@ -14,7 +14,7 @@ import java.util.List;
  * 
  */
 @Entity(name="CreditCard")
-@Table(name="CreditCard", schema="Sales")
+@Table(name="CreditCard") //, schema="Sales")
 @Access(AccessType.FIELD)
 public class CreditCard extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

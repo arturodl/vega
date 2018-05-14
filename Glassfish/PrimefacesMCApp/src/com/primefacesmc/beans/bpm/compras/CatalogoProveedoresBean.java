@@ -74,9 +74,9 @@ public class CatalogoProveedoresBean implements Serializable {
 			proveedor = new Vendor();
 			proveedor.setAccountNumber("Cuenta000000"+i);
 			proveedor.setName("Proveedor Numero 0"+i);
-			proveedor.setCreditRating( (short)i );
-			proveedor.setActiveFlag(true);
-			proveedor.setPreferredVendorStatus(false);
+			proveedor.setCreditRating( i );
+			proveedor.setActiveFlag(2);
+			proveedor.setPreferredVendorStatus(2);
 			this.listaProveedores.add(proveedor);
 		}
 		proveedor = null;
@@ -118,8 +118,8 @@ public class CatalogoProveedoresBean implements Serializable {
 			this.numeroDeCuenta = this.proveedorSeleccionado.getAccountNumber();
 			this.nombre = this.proveedorSeleccionado.getName();
 			this.calificacionDeCredito = this.proveedorSeleccionado.getCreditRating();
-			this.proveedorActivo = this.proveedorSeleccionado.getActiveFlag();
-			this.proveedorPreferido = this.proveedorSeleccionado.getPreferredVendorStatus();
+			this.proveedorActivo = false;
+			this.proveedorPreferido = false;
 			
 		}else
 			System.out.println("Seleccione un proveedor antes de continuar");

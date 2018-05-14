@@ -14,7 +14,7 @@ import java.util.List;
  * 
  */
 @Entity(name="ProductSubcategory")
-@Table(name="ProductSubcategory", schema="Production")
+@Table(name="ProductSubcategory") //, schema="Production")
 @Access(AccessType.FIELD)
 public class ProductSubcategory extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

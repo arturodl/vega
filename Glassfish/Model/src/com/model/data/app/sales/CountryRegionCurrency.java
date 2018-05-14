@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  * 
  */
 @Entity(name="CountryRegionCurrency")
-@Table(name="CountryRegionCurrency", schema="Sales")
+@Table(name="CountryRegionCurrency") //, schema="Sales")
 @Access(AccessType.FIELD)
 public class CountryRegionCurrency extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

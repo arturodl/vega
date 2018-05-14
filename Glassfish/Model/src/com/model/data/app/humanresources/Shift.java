@@ -14,7 +14,7 @@ import java.util.List;
  * 
  */
 @Entity(name="Shift")
-@Table(name="Shift", schema="HumanResources")
+@Table(name="Shift") //, schema="HumanResources")
 @Access(AccessType.FIELD)
 public class Shift extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

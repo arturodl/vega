@@ -1,5 +1,6 @@
 package com.primefacesmc.beans.aplicacion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,8 +18,14 @@ import com.core.app.modelo.sitio.Pagina;
 
 @ManagedBean(name="aplicacionBean")
 @SessionScoped
-public class AplicacionBean {
-    private int clave;
+public class AplicacionBean implements Serializable {
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private int clave;
     private String usuario;
     private String password;
     private List<Pagina> listaOpcionesUsuario;

@@ -17,7 +17,7 @@ import java.util.List;
  * al parecer no es necesario actualizar tener una columna como identity
  */
 @Entity(name="CountryRegion")
-@Table(name="CountryRegion", schema="Person")
+@Table(name="CountryRegion") //, schema="Person")
 @Access(AccessType.FIELD)
 public class CountryRegion extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

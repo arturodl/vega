@@ -2,6 +2,7 @@ package com.model.data.app.purchasing;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NotFound;
@@ -19,14 +20,15 @@ import java.util.List;
  * The persistent class for the Vendor database table.
  * 
  */
+@XmlRootElement(name="Vendor")
 @Entity(name="Vendor")
-@Table(name="Vendor", schema="Purchasing")
+@Table(name="Vendor") //, schema="Purchasing")
 @Access(AccessType.FIELD)
 public class Vendor extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER) 
 	@JoinColumn(name = "businessEntityId", referencedColumnName="businessEntityId")
 	private BusinessEntity businessEntity;
 
@@ -34,10 +36,10 @@ public class Vendor extends Entidad implements Serializable {
 	private String accountNumber;
 
 	@Column(name="ActiveFlag")
-	private boolean activeFlag;
+	private Integer activeFlag;
 
 	@Column(name="CreditRating")
-	private short creditRating;
+	private Integer creditRating;
 
 	@Column(name="ModifiedDate")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -47,7 +49,7 @@ public class Vendor extends Entidad implements Serializable {
 	private String name;
 
 	@Column(name="PreferredVendorStatus")
-	private boolean preferredVendorStatus;
+	private Integer preferredVendorStatus;
 
 	@Column(name="PurchasingWebServiceURL")
 	@Basic(optional = true)
@@ -55,7 +57,7 @@ public class Vendor extends Entidad implements Serializable {
 
 	//bi-directional many-to-one association to ProductVendor
 	@JoinColumn(name="businessEntityId", referencedColumnName="businessEntityId")
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<ProductVendor> productVendors;	
 	
 	public Vendor() {
@@ -69,19 +71,19 @@ public class Vendor extends Entidad implements Serializable {
 		this.accountNumber = accountNumber;
 	}
 
-	public boolean getActiveFlag() {
+	public Integer getActiveFlag() {
 		return this.activeFlag;
 	}
 
-	public void setActiveFlag(boolean activeFlag) {
+	public void setActiveFlag(Integer activeFlag) {
 		this.activeFlag = activeFlag;
 	}
 
-	public short getCreditRating() {
+	public Integer getCreditRating() {
 		return this.creditRating;
 	}
 
-	public void setCreditRating(short creditRating) {
+	public void setCreditRating(Integer creditRating) {
 		this.creditRating = creditRating;
 	}
 
@@ -93,11 +95,11 @@ public class Vendor extends Entidad implements Serializable {
 		this.name = name;
 	}
 
-	public boolean getPreferredVendorStatus() {
+	public Integer getPreferredVendorStatus() {
 		return this.preferredVendorStatus;
 	}
 
-	public void setPreferredVendorStatus(boolean preferredVendorStatus) {
+	public void setPreferredVendorStatus(Integer preferredVendorStatus) {
 		this.preferredVendorStatus = preferredVendorStatus;
 	}
 

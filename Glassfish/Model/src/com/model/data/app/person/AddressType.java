@@ -15,7 +15,7 @@ import java.util.List;
  * 
  */
 @Entity(name="AddressType")
-@Table(name="AddressType", schema="Person")
+@Table(name="AddressType") //, schema="Person")
 @Access(AccessType.FIELD)
 public class AddressType extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

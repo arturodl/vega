@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  * 
  */
 @Entity(name="ProductReview")
-@Table(name="ProductReview", schema="Production")
+@Table(name="ProductReview") //, schema="Production")
 @Access(AccessType.FIELD)
 public class ProductReview extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

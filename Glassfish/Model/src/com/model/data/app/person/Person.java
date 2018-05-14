@@ -2,6 +2,7 @@ package com.model.data.app.person;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.core.app.modelo.Entidad;
 
@@ -14,8 +15,9 @@ import java.util.List;
  * The persistent class for the Person database table.
  * 
  */
+@XmlRootElement(name="Person")
 @Entity(name="Person")
-@Table(name="Person", schema="Person")
+@Table(name="Person") //, schema="Person")
 @Access(AccessType.FIELD)
 public class Person extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

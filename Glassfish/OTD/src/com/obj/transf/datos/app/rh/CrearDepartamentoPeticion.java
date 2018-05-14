@@ -38,6 +38,8 @@ public class CrearDepartamentoPeticion extends PeticionEntidad{
 		this.uidPermisoUsuario = uidPermisoUsuario;
 	}
 	
-
+    public static void main (String [] args) {
+    	System.out.println("Hola mundo");
+    }
 	
 }

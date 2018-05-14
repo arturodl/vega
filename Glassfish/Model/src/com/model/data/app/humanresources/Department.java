@@ -20,7 +20,7 @@ import com.core.app.modelo.Entidad;
 
 @XmlRootElement(name="Department")
 @Entity(name="Department")
-@Table(name="Department", schema="HumanResources")
+@Table(name="Department") //, schema="HumanResources"      
 @Access(AccessType.FIELD)
 public class Department extends Entidad{
 	

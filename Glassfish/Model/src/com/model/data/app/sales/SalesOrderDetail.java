@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  * 
  */
 @Entity(name="SalesOrderDetail")
-@Table(name="SalesOrderDetail", schema="Sales")
+@Table(name="SalesOrderDetail") //, schema="Sales")
 @Access(AccessType.FIELD)
 public class SalesOrderDetail extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

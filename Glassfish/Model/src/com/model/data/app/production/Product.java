@@ -15,7 +15,7 @@ import java.util.List;
  * 
  */
 @Entity(name="Product")
-@Table(name="Product", schema="Production")
+@Table(name="Product") //, schema="Production")
 @Access(AccessType.FIELD)
 public class Product extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

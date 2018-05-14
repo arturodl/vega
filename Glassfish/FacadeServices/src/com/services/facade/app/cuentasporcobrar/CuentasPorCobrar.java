@@ -11,16 +11,13 @@ import javax.jws.soap.SOAPBinding.Style;
 import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroPeticion;
 import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroRespuesta;
 
-@WebService(serviceName="CuentasPorCobrarService",
-			name="CuentasPorCobrarPort")
+@WebService // (serviceName="CuentasPorCobrarService",
+			// name="CuentasPorCobrarPort")
 @SOAPBinding(style = Style.DOCUMENT)
-public interface CuentasPorCobrar{
-	
-	@WebMethod(operationName="generarCobro",
-			   action="generarCobroAction")
-	@WebResult(name="crearDepartamentoResponse")
-    public GenerarCobroRespuesta 
-    				GenerarCobro(@WebParam(name="generarCobroPeticion", mode= Mode.IN)
-    							 GenerarCobroPeticion peticion
-    							 );
+public interface CuentasPorCobrar {
+
+	@WebMethod(operationName = "generarCobro", action = "generarCobroAction")
+	@WebResult(name = "crearDepartamentoResponse")
+	public GenerarCobroRespuesta GenerarCobro(
+			@WebParam(name = "generarCobroPeticion", mode = Mode.IN) GenerarCobroPeticion peticion);
 }

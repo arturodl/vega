@@ -14,7 +14,7 @@ import java.util.List;
  * 
  */
 @Entity(name="ScrapReason")
-@Table(name="ScrapReason", schema="Production")
+@Table(name="ScrapReason") //, schema="Production")
 @Access(AccessType.FIELD)
 public class ScrapReason extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -16,7 +16,7 @@ import java.util.List;
  * Catalogo que contiene todas las monedas de todos los paises
  */
 @Entity(name="Currency")
-@Table(name="Currency", schema="Sales")
+@Table(name="Currency") //, schema="Sales")
 @Access(AccessType.FIELD)
 public class Currency extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

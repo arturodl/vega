@@ -93,9 +93,12 @@
 		<class>com.model.data.app.sales.SpecialOfferProduct</class>
 		<class>com.model.data.app.sales.SpecialOfferProductPK</class>
 		<class>com.model.data.app.sales.Store</class>
+		<class>com.model.data.app.security.User</class>
+		<class>com.model.data.app.security.UserRole</class>
 		<properties>		
 			<property name="hibernate.show_sql" value="true"/>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.dialect.storage_engine" value="innodb"/>
 		    <property name="hibernate.hbm2ddl.auto" value="auto"/>		
 		</properties>
 		

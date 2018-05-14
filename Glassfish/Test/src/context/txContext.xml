@@ -12,7 +12,7 @@
    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
    http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd"> 
    
-   <jee:jndi-lookup id="DSAdventureWorks2014" jndi-name="jdbc/DSAdventureWorks" ></jee:jndi-lookup>
+   <jee:jndi-lookup id="DSAdventureWorks2014" jndi-name="jdbc/DSAdventureWorksM" ></jee:jndi-lookup>
    
    <aop:aspectj-autoproxy proxy-target-class="true"/>
    

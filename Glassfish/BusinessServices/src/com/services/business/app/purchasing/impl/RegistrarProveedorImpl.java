@@ -35,9 +35,9 @@ public class RegistrarProveedorImpl implements RegistrarProveedor{
 	    Vendor vendor = new Vendor();	
 		vendor.setAccountNumber("Arturo025");
 		vendor.setName("ALR");
-		vendor.setCreditRating((short)1);
-		vendor.setPreferredVendorStatus(true);
-		vendor.setActiveFlag(true);
+		vendor.setCreditRating(1);
+		vendor.setPreferredVendorStatus(2);
+		vendor.setActiveFlag(2);
 		vendor.setModifiedDate(new Date());
 		vendor.setPurchasingWebServiceURL("www.arturodl.com");
 		vendor.setBusinessEntity(entidadNegocio);

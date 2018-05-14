@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  * 
  */
 @Entity(name="Password")
-@Table(name="Password", schema="Person")
+@Table(name="Password") //, schema="Person")
 @Access(AccessType.FIELD)
 public class Password extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;

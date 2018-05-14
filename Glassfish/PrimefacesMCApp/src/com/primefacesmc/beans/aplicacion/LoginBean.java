@@ -1,12 +1,20 @@
 package com.primefacesmc.beans.aplicacion;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 
 @ManagedBean(name="loginBean")
 @ViewScoped
-public class LoginBean {
+public class LoginBean implements Serializable {
+	
+	/**  
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String redireccionar;
 	private String nombreUsuario;
 	private String claveUsuario;	
