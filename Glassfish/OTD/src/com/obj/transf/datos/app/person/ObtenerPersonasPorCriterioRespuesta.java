@@ -2,20 +2,20 @@ package com.obj.transf.datos.app.person;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.core.app.otd.ObtenerEntidadesPorCriterioRespuesta;
-import com.model.data.app.humanresources.Department;
+import org.eclipse.persistence.oxm.annotations.XmlClassExtractor;
 
-@XmlRootElement(name="ObtenerPersonasPorCriterioRespuesta")
+import com.core.app.otd.ObtenerEntidadesPorCriterioRespuesta;
+
+@XmlRootElement(name="GetPersonsByCriteriaResponse")
 public class ObtenerPersonasPorCriterioRespuesta extends ObtenerEntidadesPorCriterioRespuesta {
 	
 	@Override
-	@XmlElementRefs({
-	    @XmlElementRef(type=Department.class)		
-	}) 
+	@XmlElementWrapper(name="personsList")
+	@XmlElement(name="person")
 	public List getListaEntidades() {
 		// TODO Auto-generated method stub
 		return super.getListaEntidades();

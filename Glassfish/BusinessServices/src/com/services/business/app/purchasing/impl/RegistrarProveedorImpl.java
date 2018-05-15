@@ -42,7 +42,7 @@ public class RegistrarProveedorImpl implements RegistrarProveedor{
 		vendor.setPurchasingWebServiceURL("www.arturodl.com");
 		vendor.setBusinessEntity(entidadNegocio);
 		
-		entidadNegocio.setVendor(vendor);
+		//entidadNegocio.setVendor(vendor);
 		// terminan los valores de la entidad principal y del proveedor
 		
 		// guardamos primero la entidad principal junto con el vendor

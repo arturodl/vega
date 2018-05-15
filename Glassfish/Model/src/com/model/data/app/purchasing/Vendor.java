@@ -3,18 +3,12 @@ package com.model.data.app.purchasing;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.core.app.modelo.Entidad;
 import com.model.data.app.person.BusinessEntity;
 
-import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
-
 
 /**
  * The persistent class for the Vendor database table.
@@ -28,24 +22,29 @@ public class Vendor extends Entidad implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@OneToOne(fetch=FetchType.EAGER) 
 	@JoinColumn(name = "businessEntityId", referencedColumnName="businessEntityId")
+	@OneToOne(fetch=FetchType.EAGER) 
 	private BusinessEntity businessEntity;
 
 	@Column(name="AccountNumber") 
+	@Basic(optional=false)
 	private String accountNumber;
 
 	@Column(name="ActiveFlag")
+	@Basic(optional=false)
 	private Integer activeFlag;
 
 	@Column(name="CreditRating")
+	@Basic(optional=false)
 	private Integer creditRating;
 
 	@Column(name="ModifiedDate")
 	@Temporal(TemporalType.TIMESTAMP)
+	@Basic(optional=false)
 	private Date modifiedDate;
 
 	@Column(name="Name")
+	@Basic(optional=false)
 	private String name;
 
 	@Column(name="PreferredVendorStatus")
@@ -56,9 +55,10 @@ public class Vendor extends Entidad implements Serializable {
 	private String purchasingWebServiceURL;
 
 	//bi-directional many-to-one association to ProductVendor
+	/*@XmlTransient
 	@JoinColumn(name="businessEntityId", referencedColumnName="businessEntityId")
-	@OneToMany(fetch=FetchType.EAGER)
-	private List<ProductVendor> productVendors;	
+	@OneToMany(fetch=FetchType.LAZY)
+	private List<ProductVendor> productVendors;	*/
 	
 	public Vendor() {
 	}
@@ -111,7 +111,7 @@ public class Vendor extends Entidad implements Serializable {
 		this.purchasingWebServiceURL = purchasingWebServiceURL;
 	}
 
-	public List<ProductVendor> getProductVendors() {
+/*	public List<ProductVendor> getProductVendors() {
 		return this.productVendors;
 	}
 
@@ -131,7 +131,7 @@ public class Vendor extends Entidad implements Serializable {
 		productVendor.setVendor(null);
 
 		return productVendor;
-	}
+	} */
 
 	public Date getModifiedDate() {
 		return modifiedDate;
@@ -141,13 +141,10 @@ public class Vendor extends Entidad implements Serializable {
 		this.modifiedDate = modifiedDate;
 	}
 
-
-
+	@XmlTransient
 	public BusinessEntity getBusinessEntity() {
 		return businessEntity;
 	}
-
-
 
 	public void setBusinessEntity(BusinessEntity businessEntity) {
 		this.businessEntity = businessEntity;

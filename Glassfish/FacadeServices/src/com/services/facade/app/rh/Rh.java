@@ -21,19 +21,19 @@ import com.obj.transf.datos.app.rh.ObtenerDepartamentosPorCriterioRespuesta;
 @SOAPBinding(style = Style.DOCUMENT)
 public interface Rh {
 	
-	@WebMethod(operationName="crearDepartamento",
-		       action="crearDepartamentoAction")
-	@WebResult( name="crearDepartamentoResponse")
+	@WebMethod(operationName="createDepartament",
+		       action="createDepartamentAction")
+	@WebResult( name="createDepartamentResponse")
 	public CrearDepartamentoRespuesta 
-				crearDepartamento( @WebParam(name="crearDepartamentoRequest", mode=Mode.IN) 
+				crearDepartamento( @WebParam(name="createDepartamentRequest", mode=Mode.IN) 
 								   CrearDepartamentoPeticion peticion
 								 );
 	
-	@WebMethod(operationName="obtenerDepartamentos",
-		       action="obtenerDepartamentosAction")
-	@WebResult( name="obtenerDepartamentosResponse")
+	@WebMethod(operationName="getDepartmentsByCriteria",
+		       action="getDepartmentsByCriteriaAction")
+	@WebResult( name="getDepartmentsByCriteriaResponse")
 	public ObtenerDepartamentosPorCriterioRespuesta 
 				obtenerDepartamentosPorCriterio(
-									@WebParam(name="obtenerDepartamentosRequest", mode=Mode.IN) 
+									@WebParam(name="getDepartmentsByCriteriaRequest", mode=Mode.IN) 
 									ObtenerDepartamentosPorCriterioPeticion peticion);
 }

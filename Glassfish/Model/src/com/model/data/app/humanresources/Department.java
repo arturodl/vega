@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.core.app.modelo.Entidad;
 
@@ -47,9 +48,10 @@ public class Department extends Entidad{
    @Basic(optional=true)
    private Date modifiedDate;
 	
-	public Integer getDepartmentID() {
-		return departmentID;
-	}
+   @XmlTransient
+   public Integer getDepartmentID() {
+	  return departmentID;
+   }
 	
 	public void setDepartmentID(Integer departmentID) {
 		this.departmentID = departmentID;

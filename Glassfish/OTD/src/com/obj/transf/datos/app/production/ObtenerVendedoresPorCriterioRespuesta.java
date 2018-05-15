@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.core.app.otd.ObtenerEntidadesPorCriterioRespuesta;
 
-@XmlRootElement(name="ObtenerVendedoresPorCriterioRespuesta")
+@XmlRootElement(name="GetVendorsByCriteriaResponse")
 public class ObtenerVendedoresPorCriterioRespuesta extends ObtenerEntidadesPorCriterioRespuesta {
 
 	@Override
@@ -16,14 +16,8 @@ public class ObtenerVendedoresPorCriterioRespuesta extends ObtenerEntidadesPorCr
 	@XmlElement(name="vendor")
 	public List getListaEntidades() {
 		// TODO Auto-generated method stub7
-		System.out.println("Llamada a getListaEntidades desde el hijo");
-		return super.getListaEntidades();
-	}
-	
-	/*
-	public void setListaEntidades(List listaEntidades) {
-		System.out.println("Llamada a setListaEntidades desde el hijo");
-		super.setListaEntidades(listaEntidades);
-	}
-	*/
+		System.out.println("Llamada a getListaEntidades desde el hijo vendors");
+		return super.getListaEntidades(); 
+	}  
+
 }

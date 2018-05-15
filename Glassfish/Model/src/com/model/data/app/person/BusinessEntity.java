@@ -40,7 +40,7 @@ public class BusinessEntity extends Entidad implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modifiedDate;	
 
-	//bi-directional many-to-one association to BusinessEntityAddress
+/*	//bi-directional many-to-one association to BusinessEntityAddress
 	@OneToOne(mappedBy="businessEntity", fetch=FetchType.LAZY)
 	private BusinessEntityAddress businessEntityAddress;
 
@@ -53,14 +53,14 @@ public class BusinessEntity extends Entidad implements Serializable {
 	private Person person;
 	
 	@OneToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy="businessEntity", fetch=FetchType.LAZY)
-	private Vendor vendor;
+	private Vendor vendor;*/
 	
 	public BusinessEntity() {
 	}
 	
 	
 
-	public BusinessEntityAddress getBusinessEntityAddress() {
+/*	public BusinessEntityAddress getBusinessEntityAddress() {
 		return businessEntityAddress;
 	}
 
@@ -81,7 +81,7 @@ public class BusinessEntity extends Entidad implements Serializable {
 	public void setVendor(Vendor vendor) {
 		this.vendor = vendor;
 	}
-
+*/
 
 
 	public Date getModifiedDate() {
@@ -123,7 +123,7 @@ public class BusinessEntity extends Entidad implements Serializable {
 		return businessEntityAddress;
 	}
 */
-	public List<BusinessEntityContact> getBusinessEntityContacts() {
+/*	public List<BusinessEntityContact> getBusinessEntityContacts() {
 		return this.businessEntityContacts;
 	}
 
@@ -143,16 +143,16 @@ public class BusinessEntity extends Entidad implements Serializable {
 		businessEntityContact.setBusinessEntity(null);
 
 		return businessEntityContact;
-	}
+	}*/
 
-	public Person getPerson() {
+/*	public Person getPerson() {
 		return this.person;
 	}
 
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-
+*/
 	public int getBusinessEntityID() {
 		return businessEntityID;
 	}

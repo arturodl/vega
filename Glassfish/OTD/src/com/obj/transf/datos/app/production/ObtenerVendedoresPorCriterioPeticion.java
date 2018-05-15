@@ -8,13 +8,13 @@ import com.core.app.modelo.Entidad;
 import com.core.app.otd.ObtenerEntidadesPorCriterioPeticion;
 import com.model.data.app.purchasing.Vendor;
 
-@XmlRootElement(name="ObtenerVendedoresPorCriterioPeticion")
+@XmlRootElement(name="GetVendorsByCriteriaRequest")
 public class ObtenerVendedoresPorCriterioPeticion extends ObtenerEntidadesPorCriterioPeticion {
 	
 	public ObtenerVendedoresPorCriterioPeticion() {
 		// Predefinimos la clase para el servicio de ObtenerEntidadesPorCriterio
 		this.setClase(Vendor.class);
-	}
+	} 
 
 	@Override
 	@XmlElementRefs({ @XmlElementRef(type = Vendor.class) })

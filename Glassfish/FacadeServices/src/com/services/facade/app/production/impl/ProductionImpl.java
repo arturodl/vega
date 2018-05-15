@@ -25,8 +25,8 @@ public class ProductionImpl implements Production {
 		// TODO Auto-generated method stub 
 		System.out.println("La entidad para enviar a obtenerDepartamentosPorCriterio es:"+peticion.getEntidad());
 		ObtenerVendedoresPorCriterioRespuesta respuesta = obtenerVendedoresPorCriterio.ejecutar(peticion);
-		System.out.println("Total entidades obtenidas:"+respuesta.getListaEntidades().size());
-		return respuesta;
+		System.out.println("Total entidades obtenidas vendor:"+respuesta.getListaEntidades().size());
+		return respuesta;  
 	}
 
 	public ObtenerVendedoresPorCriterio getObtenerVendedoresPorCriterio() {

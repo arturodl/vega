@@ -1,10 +1,12 @@
 package com.core.app.servicios.entidad.impl;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.Example;
 
@@ -34,6 +36,29 @@ public class ObtenerEntidadesPorCriterioImpl implements ServicioObtenerEntidades
 			Criteria criteria = session.createCriteria( clase ).
 					  					add( example );
 			
+			/*System.out.println("Before evaluating class fields");
+			Field [] fields = clase.getDeclaredFields();
+			
+			for(Field f : fields){			
+				
+					f.setAccessible(true);				
+					
+					if( !f.getType().isPrimitive() && !f.getType().isInterface()){
+						
+						if(f.getType().getSuperclass().getCanonicalName().equals("com.core.app.modelo.Entidad") ){
+							
+							if( camposValidos( f.get(peticion.getEntidad() ) ) ){
+								System.out.println("Adding left join criteria");
+								criteria.createCriteria( f.getName() , CriteriaSpecification.LEFT_JOIN ).add( Example.create(f.get(peticion.getEntidad()) ).enableLike() );
+							}
+						}						
+					}				
+			}*/
+			
+			//criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+			System.out.println("Before evaluating fetchMode with no criteria");
+			//criteria.setFetchMode("businessEntity", FetchMode.JOIN);
+			
 			List listaEntidades = criteria.list();
 			
 			respuesta = new ObtenerEntidadesPorCriterioRespuesta();
@@ -44,6 +69,33 @@ public class ObtenerEntidadesPorCriterioImpl implements ServicioObtenerEntidades
 			e.printStackTrace();
 		}		
 		return respuesta;
+	}
+	
+	private boolean camposValidos(Object o) throws IllegalArgumentException, IllegalAccessException  {		
+		
+		boolean resultado = false;		
+
+		if(o != null){
+			
+			for(Field f: o.getClass().getDeclaredFields() ) {		
+	
+				f.setAccessible(true);				
+				
+				if( !f.getType().isPrimitive() && !f.getType().isInterface() ){	
+					
+					if( !f.getType().getSuperclass().getCanonicalName().equals("com.core.app.modelo.Entidad")  ){						
+						
+						if( f.get( o) != null ){
+							resultado = true;
+							break;
+							
+						}
+					}				
+				}
+			}		
+		
+		}
+		return resultado;
 	}
 	
 	public EntityManager getEntityManager() {

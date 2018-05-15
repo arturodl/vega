@@ -10,7 +10,7 @@ import com.core.app.otd.ObtenerEntidadesPorCriterioPeticion;
 import com.model.data.app.humanresources.Department;
 import com.model.data.app.person.Person;
 
-@XmlRootElement(name = "ObtenerPersonasPorCriterioPeticion")
+@XmlRootElement(name = "GetPersonsByCriteriaRequest")
 public class ObtenerPersonasPorCriterioPeticion extends ObtenerEntidadesPorCriterioPeticion {
 	
 	private String test;
