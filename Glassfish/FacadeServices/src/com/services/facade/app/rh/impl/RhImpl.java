@@ -12,7 +12,11 @@ import com.services.data.app.rh.CrearDepartamento;
 import com.services.data.app.rh.ObtenerDepartamentosPorCriterio;
 import com.services.facade.app.rh.Rh;
 
-@WebService(endpointInterface = "com.services.facade.app.rh.Rh"
+//Set values to WebService Annotation when it's working on Jboss/Wildfly
+//Otherwise quit values and set them on the webservice interface RH 
+@WebService(serviceName="RhService",
+			name="Rh",
+			endpointInterface = "com.services.facade.app.rh.Rh"			
 			)
 public class RhImpl implements Rh {
 

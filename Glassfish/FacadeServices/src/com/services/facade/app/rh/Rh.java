@@ -16,8 +16,11 @@ import com.obj.transf.datos.app.rh.CrearDepartamentoRespuesta;
 import com.obj.transf.datos.app.rh.ObtenerDepartamentosPorCriterioPeticion;
 import com.obj.transf.datos.app.rh.ObtenerDepartamentosPorCriterioRespuesta;
 
+//Quit values from WebService Annotation when it's working on Wildfly/Jboss
+//Otherwise set them.
 @WebService//(serviceName="RhService",
-			//name="RhPort")
+			//name="RhPort",
+			//wsdlLocation = "RhWsdl.wsdl")
 @SOAPBinding(style = Style.DOCUMENT)
 public interface Rh {
 	
