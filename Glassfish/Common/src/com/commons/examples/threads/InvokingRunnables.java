@@ -1,10 +1,10 @@
-package com.commons.threads.examples.hilos;
+package com.commons.examples.threads;
 
-import com.commons.threads.examples.hilos.waitnotifier.Message;
-import com.commons.threads.examples.hilos.waitnotifier.Notifier;
-import com.commons.threads.examples.hilos.waitnotifier.Waiter;
+import com.commons.examples.threads.runnables.Message;
+import com.commons.examples.threads.runnables.Notifier;
+import com.commons.examples.threads.runnables.Waiter;
 
-public class MainThreads {
+public class InvokingRunnables {
 	
 	public static void main(String[] args){
 		Message msg = new Message("process it");

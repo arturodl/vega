@@ -1,4 +1,4 @@
-package com.commons.threads.examples.hilos;
+package com.commons.examples.threads;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,9 +9,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import com.commons.threads.examples.callables.MyCallable;
+import com.commons.examples.threads.callables.MyCallable;
 
-public class MainCallables {
+public class InvokingCallables {
 	
 	public static void main(String[] args){
 		ExecutorService executor = Executors.newFixedThreadPool(10);
@@ -26,6 +26,7 @@ public class MainCallables {
 		
 		for(Future<String> item: lista){
 			try{
+				System.out.println("Invoking the request for the thread");
 				System.out.println(new Date() + " :: "+item.get());
 			}catch(InterruptedException e){
 				e.printStackTrace();
@@ -33,7 +34,7 @@ public class MainCallables {
 				e.printStackTrace();
 			}
 		}
-		
+		System.out.println("Shutting down the executor");
 		executor.shutdown();
 	}
 }

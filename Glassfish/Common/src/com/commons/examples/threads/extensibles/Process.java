@@ -1,4 +1,4 @@
-package com.commons.threads.examples.hilos.processes;
+package com.commons.examples.threads.extensibles;
 
 public class Process extends Thread {
 	private String mensaje;

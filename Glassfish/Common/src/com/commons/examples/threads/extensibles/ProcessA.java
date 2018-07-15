@@ -1,4 +1,4 @@
-package com.commons.threads.examples.hilos.processes;
+package com.commons.examples.threads.extensibles;
 
 public class ProcessA extends Thread {
 	 int total;

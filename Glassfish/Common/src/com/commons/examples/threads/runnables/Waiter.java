@@ -1,4 +1,4 @@
-package com.commons.threads.examples.hilos.waitnotifier;
+package com.commons.examples.threads.runnables;
 
 public class Waiter implements Runnable {
 
