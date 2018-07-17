@@ -1,4 +1,4 @@
-package com.commons.examples.classes;
+package com.commons.examples.inheritance;
 
 public class Employee extends Person{
 	private String rfc;

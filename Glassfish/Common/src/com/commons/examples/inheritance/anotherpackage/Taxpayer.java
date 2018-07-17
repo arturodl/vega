@@ -1,6 +1,6 @@
-package com.commons.examples.classes.anotherpackage;
+package com.commons.examples.inheritance.anotherpackage;
 
-import com.commons.examples.classes.Person;
+import com.commons.examples.inheritance.Person;
 import com.commons.examples.interfaces.CanBorrow;
 
 public class Taxpayer extends Person implements CanBorrow{

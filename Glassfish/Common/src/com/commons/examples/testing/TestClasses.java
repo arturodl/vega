@@ -1,7 +1,7 @@
 package com.commons.examples.testing;
 
-import com.commons.examples.classes.Employee;
-import com.commons.examples.classes.anotherpackage.Taxpayer;
+import com.commons.examples.inheritance.Employee;
+import com.commons.examples.inheritance.anotherpackage.Taxpayer;
 import com.commons.examples.interfaces.CanBorrow;
 
 public class TestClasses {

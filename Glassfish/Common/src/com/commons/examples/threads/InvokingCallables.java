@@ -26,7 +26,7 @@ public class InvokingCallables {
 		
 		for(Future<String> item: lista){
 			try{
-				System.out.println("Invoking the request for the thread");
+				System.out.println("Thread is already done: "+item.isDone());
 				System.out.println(new Date() + " :: "+item.get());
 			}catch(InterruptedException e){
 				e.printStackTrace();
