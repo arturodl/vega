@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="LocalAdministrateApp">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="FacadeServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/FacadeServices/FacadeServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BusinessServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/BusinessServices/BusinessServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Model/Model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DataServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DataServices/DataServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Common.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Common/Common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/DataTransferObjects/DataTransferObjects">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/Core/Core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="LocalAdministrateApp"/>
+        <property name="java-output-path" value="/LocalAdministrateApp/build/classes"/>
+    </wb-module>
+</project-modules>

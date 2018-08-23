@@ -1,0 +1,110 @@
+html, body, form {
+    width: 100%;
+    height: 100%;
+    /* las siguientes propiedades se colocan para evitar que el explorador las autodefina 
+    y el html, el body y el form autoocupen unos pixeles */
+    margin: 0;      
+    padding: 0;    
+    font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif;
+}
+
+.fontPrincipal{
+	font-family: "Segoe UI","Segoe WP","Segoe UI WPC",Tahoma,Arial,sans-serif !important;
+}
+
+#loginContenedorPrincipal {
+    background-color: white;
+    border: 0px solid #000000;
+    border-radius: 0;
+    height: 100%;
+    max-width: 100%;
+    min-width: 250px;
+    padding: 0px;
+}
+
+#loginContenedorPrincipal > #loginColumnaIzq {
+    background-color: #00529f;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    float: left;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    color: white;
+}
+
+#loginContenedorPrincipal > #loginColumnaDer {
+    background-color: #F8F8F8;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    float: left;
+    height: 100%;
+    width: 75%;
+}
+
+#loginContenedorPrincipal > #loginColumnaIzq > #divLogos {
+	position: relative;
+	top: 45%;
+	left: 5%;    
+    border: 0px solid white;
+    
+}
+
+.labelErp{
+	font-size: 42px;     
+}
+
+.labelDescripcion{
+	font-size: 18px;
+}
+
+#loginContenedorPrincipal > #loginColumnaDer > #divInfoUsuario{
+	position: relative;
+	max-width: 320px;
+	top: 23%;
+	left: 10%;    
+    border: 0px solid white;
+    display: inline-grid;
+}
+
+#loginContenedorPrincipal > #loginColumnaDer > #divInfoUsuario > .ui-button,
+#loginContenedorPrincipal > #loginColumnaDer > #divInfoUsuario > .ui-inputfield{ 
+	width: 200px;
+}
+
+#loginContenedorPrincipal > #loginColumnaDer > #divInfoUsuario > .lblGobiernoMunicipal{ 
+	font-size: 30px;
+	font-weight: bold;
+	color: blue;
+}
+
+#loginContenedorPrincipal > #loginColumnaDer > #divInfoUsuario > .lblBienvenidos{ 
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#loginContenedorPrincipal > #loginColumnaDer > #divInfoUsuario > .lblAvisoImportante{ 
+	font-size: 12px;	
+}
+
+.margin{
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width:500px){
+	#loginContenedorPrincipal > #loginColumnaIzq {
+    	display: none;
+    }
+    
+    #loginContenedorPrincipal > #loginColumnaDer {
+    	float: none; 	
+    	width: 100%;
+    }
+}
+
+@media screen and (max-width:860px){
+    .labelDescripcion{
+        display:none;
+    }
+}
