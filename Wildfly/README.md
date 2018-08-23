@@ -1,1 +1,0 @@
-# Welcome to this folder, in here we have our project working with wildfly
