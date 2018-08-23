@@ -27,9 +27,9 @@ public class PersonImpl implements Person {
 		// TODO Auto-generated method stub
 		return "Hi from PersonService";
 	}
-
+ 
 	@Override
-	@PostMapping("/getPersons")
+	@PostMapping("/getPersonsByCriteria")
 	public ObtenerPersonasPorCriterioRespuesta obtenerPersonasPorCriterio(
 			@RequestBody ObtenerPersonasPorCriterioPeticion peticion) {
 		System.out.println("La entidad para enviar a obtenerPersonasPorCriterio es: " + peticion.getEntidad());

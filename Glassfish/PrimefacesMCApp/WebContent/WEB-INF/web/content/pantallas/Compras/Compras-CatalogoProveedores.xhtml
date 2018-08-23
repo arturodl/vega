@@ -166,10 +166,10 @@
    	      			<h:outputText value="#{proveedor.creditRating}" />
    	      		</p:column>   	      		
    	      		<p:column headerText="Preferido">
-   	      			<h:outputText value="#{proveedor.preferredVendorStatus == true? 'Si':'No' }" />
+   	      			<h:outputText value="#{proveedor.preferredVendorStatus == 1? 'Si':'No' }" />
    	      		</p:column>
    	      		<p:column headerText="Activo">
-   	      			<h:outputText value="#{proveedor.activeFlag? 'Si':'No'}" />
+   	      			<h:outputText value="#{proveedor.activeFlag == 1? 'Si':'No'}" />
    	      		</p:column>
    	      	</p:dataTable>
    	       </div>

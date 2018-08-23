@@ -17,7 +17,7 @@ import com.obj.transf.datos.app.cuentasporcobrar.GenerarCobroRespuesta;
 public interface CuentasPorCobrar {
 
 	@WebMethod(operationName = "generarCobro", action = "generarCobroAction")
-	@WebResult(name = "crearDepartamentoResponse")
+	@WebResult(name = "generarCobroResponse")
 	public GenerarCobroRespuesta GenerarCobro(
 			@WebParam(name = "generarCobroPeticion", mode = Mode.IN) GenerarCobroPeticion peticion);
 }
