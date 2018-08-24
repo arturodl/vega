@@ -1,5 +1,6 @@
 package com.model.data.app.humanresources;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -23,8 +24,13 @@ import com.core.app.modelo.Entidad;
 @Entity(name="Department")
 @Table(name="Department") //, schema="HumanResources"      
 @Access(AccessType.FIELD)
-public class Department extends Entidad{
+public class Department extends Entidad implements Serializable{
 	
+   /**
+	 * 
+	 */
+   private static final long serialVersionUID = 1L;
+
    @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY)
    @Column(name="DepartmentID")

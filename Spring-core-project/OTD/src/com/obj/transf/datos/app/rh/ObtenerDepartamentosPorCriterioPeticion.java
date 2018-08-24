@@ -10,6 +10,8 @@ import com.model.data.app.humanresources.Department;
 
 @XmlRootElement(name="GetDepartmentsByCriteriaRequest")
 public class ObtenerDepartamentosPorCriterioPeticion extends ObtenerEntidadesPorCriterioPeticion{
+	
+	private String test;
 
 	public ObtenerDepartamentosPorCriterioPeticion() {
 		this.setClase(Department.class);
@@ -24,5 +26,11 @@ public class ObtenerDepartamentosPorCriterioPeticion extends ObtenerEntidadesPor
 		super.setEntidad(entidad);
 	}
 	
-	
+	public String getTest() {
+		return test;
+	}
+
+	public void setTest(String test) {
+		this.test = test;
+	}
 }

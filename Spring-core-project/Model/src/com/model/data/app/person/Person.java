@@ -36,7 +36,7 @@ public class Person extends Entidad implements Serializable {
 	private String demographics;
 
 	@Column(name="EmailPromotion")
-	private int emailPromotion;
+	private Integer emailPromotion;
 
 	@Column(name="FirstName")
 	private String firstName;
@@ -52,7 +52,7 @@ public class Person extends Entidad implements Serializable {
 	private Date modifiedDate;
 
 	@Column(name="NameStyle")
-	private boolean nameStyle;
+	private Integer nameStyle;
 
 	@Column(name="PersonType")
 	private String personType;
@@ -114,11 +114,11 @@ public class Person extends Entidad implements Serializable {
 		this.demographics = demographics;
 	}
 
-	public int getEmailPromotion() {
+	public Integer getEmailPromotion() {
 		return this.emailPromotion;
 	}
 
-	public void setEmailPromotion(int emailPromotion) {
+	public void setEmailPromotion(Integer emailPromotion) {
 		this.emailPromotion = emailPromotion;
 	}
 
@@ -154,11 +154,11 @@ public class Person extends Entidad implements Serializable {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public boolean getNameStyle() {
+	public Integer getNameStyle() {
 		return this.nameStyle;
 	}
 
-	public void setNameStyle(boolean nameStyle) {
+	public void setNameStyle(Integer nameStyle) {
 		this.nameStyle = nameStyle;
 	}
 

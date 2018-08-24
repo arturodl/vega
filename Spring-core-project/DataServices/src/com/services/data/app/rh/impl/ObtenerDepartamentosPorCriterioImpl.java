@@ -18,6 +18,7 @@ public class ObtenerDepartamentosPorCriterioImpl implements ObtenerDepartamentos
 		
 		try {
 			List<Department> listaDepartamentos = obtenerEntidadesPorCriterio.ejecutar(peticion).getListaEntidades();
+			respuesta.setMensajeResultadoObtencion( listaDepartamentos == null || listaDepartamentos.isEmpty()  ? "Sin Resultados": "Con Resultados" );
 			respuesta.setListaEntidades(listaDepartamentos);
 		}catch(Exception e) {
 			System.out.println("Error en el Servicio ObtenerDepartamentosPorCriterioImpl:" +e.getMessage());

@@ -5,10 +5,14 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 import com.core.app.otd.ObtenerEntidadesPorCriterioRespuesta;
+import com.model.data.app.humanresources.Department;
+import com.model.data.app.person.Person;
 
 @XmlRootElement(name="GetDepartmentsByCriteriaResponse")
+@XmlSeeAlso(Department.class)
 public class ObtenerDepartamentosPorCriterioRespuesta extends ObtenerEntidadesPorCriterioRespuesta {
 	
 	@Override
