@@ -8,7 +8,8 @@
 	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
 	<http create-session="stateless" use-expressions="true">
-		<intercept-url pattern="/web/say**" access="hasAnyRole('ROLE_USUARIO')" />
+		<intercept-url pattern="/web/**/return**" access="hasAnyRole('ROLE_USUARIO')" />
+		<intercept-url pattern="/web/test/testMyCredentials" access="hasAnyRole('ROLE_USUARIO')" />
 		<http-basic/>	
 		<csrf disabled="true"/>
 	</http>

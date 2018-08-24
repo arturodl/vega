@@ -17,4 +17,9 @@ public class TestRestController {
 	public String returnString() {
 		return "Regresando cadena de texto para prueba";
 	}
+	
+	@GetMapping("/testMyCredentials")
+	public String testMyCredentials() {
+		return "Your Credentials are being allowed";
+	}
 }
