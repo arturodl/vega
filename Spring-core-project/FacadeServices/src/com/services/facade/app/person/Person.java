@@ -12,5 +12,5 @@ public interface Person {
 	
 	public ObtenerPersonasPorCriterioRespuesta obtenerPersonasPorCriterio(ObtenerPersonasPorCriterioPeticion peticion);
 	
-	public ObtenerDepartamentosPorCriterioRespuesta obtenerDepartamentosPorCriterio(ObtenerDepartamentosPorCriterioPeticion peticion);
+	public ObtenerDepartamentosPorCriterioRespuesta obtenerDepartamentosPorCriterio(ObtenerDepartamentosPorCriterioPeticion peticion) throws Exception;
 }

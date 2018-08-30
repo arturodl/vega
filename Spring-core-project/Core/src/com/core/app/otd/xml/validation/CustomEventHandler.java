@@ -3,6 +3,8 @@ package com.core.app.otd.xml.validation;
 import javax.xml.bind.ValidationEvent;
 import javax.xml.bind.ValidationEventHandler;
 
+import org.springframework.http.converter.HttpMessageNotReadableException;
+
 public class CustomEventHandler implements ValidationEventHandler {
 
     @Override
@@ -10,15 +12,19 @@ public class CustomEventHandler implements ValidationEventHandler {
 
         String message = event.getMessage();
         String linkedMessage = "";
-        if(event.getLinkedException() != null)
+        Throwable throwable = null;
+        if(event.getLinkedException() != null) {
             linkedMessage = event.getLinkedException().toString();
+            throwable = event.getLinkedException().getCause();
+        }
         
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>> Message from Event: "+ message);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>> LinkedMessage from Event: "+linkedMessage);
-
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>> Message from Event: " + message);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>> Throwable from Event: " + throwable);
+        
         boolean ignoreValidationEvent = true;            
         if(message.contains("NumberFormatException") || message.contains("ParseException") || 
-           linkedMessage.contains("NumberFormatException") || linkedMessage.contains("AccessorException")
+           linkedMessage.contains("NumberFormatException") || linkedMessage.contains("AccessorException") ||
+           !message.isEmpty() || !linkedMessage.isEmpty()
            ){
             ignoreValidationEvent = false;
         }
@@ -31,7 +37,8 @@ public class CustomEventHandler implements ValidationEventHandler {
                 nodeName = event.getLocator().getNode().getNodeName();
 
             //This is the important line
-            throw new RuntimeException("Error parsing '" + nodeName + "': " + event.getMessage());
+            //throw new RuntimeException("Error parsing '" + nodeName + "': " + event.getMessage());  
+            throw new HttpMessageNotReadableException("Error parsing '" + nodeName + "': " + event.getMessage());          
 
         }
     }

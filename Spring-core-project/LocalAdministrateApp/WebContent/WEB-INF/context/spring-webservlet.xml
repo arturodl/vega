@@ -13,7 +13,7 @@
  
     <context:component-scan base-package="com.primefacesmc.beans.aplicacion.controllers,
     									  com.services.facade.app.person.impl" />
-     
+        							  
     <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -24,34 +24,29 @@
 		</property>
 	</bean>
 	
-	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
-			<list> -->
-				<!-- <ref bean="jsonMessageConverter"/> -->
-	<!--			<ref bean="marshallingConverter" /> 
+			<list> 
+			    <ref bean="jsonMessageConverter"/>
+				<ref bean="marshallingConverter" /> 
 			</list>
 		</property>
-	</bean> 
+	</bean>
 	
 	<bean id="marshallingConverter"
       	class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
     	<constructor-arg ref="jaxb2Marshaller" />
     	<property name="supportedMediaTypes" value="application/xml"/>
-	</bean>-->
+	</bean>
 	
-	<!-- <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="packagesToScan">
 			<list>
 	            <value>com.model.data.app</value>	
 	            <value>com.obj.transf.datos.app</value>  
+	            <value>com.core.app.otd</value>
 	        </list>
-		</property> -->
-	    <!-- <property name="classesToBeBound">
-	        <list>
-	            <value>com.model.oxm.ContactRequest</value>
-	            <value>com.model.oxm.ContactResponse</value>
-	        </list>
-	    </property> -->
+		</property>
 	    <!-- <property name="marshallerProperties">
 	        <map>
 	            <entry>
@@ -68,23 +63,17 @@
 	            </entry>
 	        </map>
 	    </property> -->
-	<!--    <property name="validationEventHandler" ref="customEventHandler" />
-	</bean>		-->
+	    <property name="validationEventHandler" ref="customEventHandler" />
+	</bean>	
 	
-	<!--
-	<bean id="customEventHandler" class="com.core.app.otd.xml.validation.CustomEventHandler">
+	<bean id="jsonMessageConverter"
+      	class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+   		  <property name="supportedMediaTypes" value="application/json" /> 
 	</bean>
 	
-	-->
-	
-	<!--
-	<bean id="jsonMessageConverter"
-      	class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> -->
-   			<!-- <property name="supportedMediaTypes" value="application/json" />  --> 
-	<!-- </bean> -->
-	
-	
-    
+	<bean id="customEventHandler" class="com.core.app.otd.xml.validation.CustomEventHandler">
+	</bean>
+
     <mvc:annotation-driven />
- 
+    
 </beans>

@@ -12,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.model.data.app.humanresources.Department;
-//import com.model.data.app.humanresources.JsonEntity;
 
 @XmlRootElement(name="GetDepartmentsByCriteriaRequest")
 public class ObtenerDepartamentosPorCriterioPeticion extends ObtenerEntidadesPorCriterioPeticion{

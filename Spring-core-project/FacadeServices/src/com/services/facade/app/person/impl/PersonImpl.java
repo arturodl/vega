@@ -73,7 +73,7 @@ public class PersonImpl implements Person {
 				    )
 	@ResponseBody
 	public ObtenerDepartamentosPorCriterioRespuesta obtenerDepartamentosPorCriterio(
-			@RequestBody ObtenerDepartamentosPorCriterioPeticion peticion) {
+			@RequestBody ObtenerDepartamentosPorCriterioPeticion peticion) throws Exception{
 		System.out.println("La entidad para enviar a obtenerDepartamentosPorCriterio es:"+peticion.getEntidad());
 		if(peticion.getEntidad() != null) {
 			System.out.println("ModifiedDate:"+((Department)peticion.getEntidad()).getModifiedDate());
@@ -97,6 +97,7 @@ public class PersonImpl implements Person {
 				for(Department department: (List<Department>)respuesta.getListaEntidades()) {
 					System.out.println("Fecha de "+department.getId()+" :"+department.getModifiedDate());
 				}
+			  //throw new Exception("Throwing Error from GetDeparmentsByCriteria Service"); 
 			}
 		}
 		

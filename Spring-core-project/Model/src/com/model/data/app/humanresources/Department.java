@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.core.app.modelo.Entidad;
-import com.core.app.otd.xml.CustomDateTimeFormatter;
+import com.core.app.otd.xml.adapter.CustomJavaUtilDateAdapter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -96,7 +96,7 @@ public class Department extends Entidad implements Serializable{
 	//@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", 
 				timezone = "America/Mexico_City", locale = "es_MX")
-	@XmlJavaTypeAdapter(CustomDateTimeFormatter.class)
+	@XmlJavaTypeAdapter(CustomJavaUtilDateAdapter.class)
 	public Date getModifiedDate() {
 		return modifiedDate;
 	}
