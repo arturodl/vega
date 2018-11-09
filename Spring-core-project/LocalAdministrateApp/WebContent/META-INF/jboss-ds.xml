@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+	 <datasource jta="true" jndi-name="java:/DSAdventureWorks" pool-name="DSAdventureWork" enabled="true" use-ccm="true">
+        <connection-url>jdbc:mysql://localhost:3306/adventureworks2014</connection-url>
+        <driver-class>com.mysql.jdbc.Driver</driver-class>
+        <driver>mysql-connector-java-5.1.47.jar_com.mysql.jdbc.Driver_5_1</driver>
+        <security>
+            <user-name>root</user-name>
+            <password>admin</password>
+        </security>
+        <validation>
+            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+            <background-validation>true</background-validation>
+            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+        </validation>
+     </datasource>
+</datasources>

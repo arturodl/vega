@@ -9,7 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/FacadeServices"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Model"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Commons"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Glassfish4.1Libs"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateCore4.3.11"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateEntityManager4.3.11"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringFramework4.3.3"/>

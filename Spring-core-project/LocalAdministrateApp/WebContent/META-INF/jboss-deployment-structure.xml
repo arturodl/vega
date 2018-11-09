@@ -6,7 +6,7 @@
   <deployment>
      <!-- exclude-subsystem prevents a subsystems deployment unit processors running on a deployment -->
      <!-- which gives basically the same effect as removing the subsystem, but it only affects single deployment -->
-     <exclude-subsystems>
+    <exclude-subsystems>
         <subsystem name="org.hibernate" />
         <subsystem name="jsf" />
         <!-- <subsystem name="webservices" />  
