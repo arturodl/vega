@@ -1,0 +1,4 @@
+The AdventureWorks Original Script was the original script, it was modified for adding USER and USER_ROLE tables these tables
+are needed for Spring Security and its classes.
+
+Try to look for Spring Security with Database Examples whenever you get in troubles :D

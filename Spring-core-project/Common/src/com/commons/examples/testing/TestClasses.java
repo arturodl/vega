@@ -1,24 +1,33 @@
 package com.commons.examples.testing;
 
 import com.commons.examples.inheritance.Employee;
+import com.commons.examples.inheritance.Person;
 import com.commons.examples.inheritance.anotherpackage.Taxpayer;
-import com.commons.examples.interfaces.CanBorrow;
 
 public class TestClasses {
 	public static void main(String [] args) {
 		System.out.println("Starting TestClasses");
 		//Employee employee = new Employee();
-		Taxpayer taxpayer = new Taxpayer("","",'O');
-		taxpayer.displayAges();
-		taxpayer.displayHis();
-		//testCasting();
+		//Taxpayer taxpayer = new Taxpayer("","",'O');
+		//taxpayer.displayAges();
+		//taxpayer.displayHis();
+		testClassesCasting();
 		
 		
 		
 		
 	}
 	
-	public static void testCasting(){
+	public static void testClassesCasting(){
+		Person person = new Person();
+		Employee employee = new Employee();
+		Taxpayer taxpayer = new Taxpayer("", "",'O');
+		
+		person = employee;
+		((Employee)person).getCurp();
+	}
+	
+	public static void testPrimiviteCasting(){
 		byte myByte = 20;		
 		short myShort = 5000;
 		int myInt = 600000;
