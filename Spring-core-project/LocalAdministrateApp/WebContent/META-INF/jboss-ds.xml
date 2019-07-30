@@ -6,7 +6,7 @@
         <driver>mysql-connector-java-5.1.47.jar_com.mysql.jdbc.Driver_5_1</driver>
         <security>
             <user-name>root</user-name>
-            <password>admin</password>
+            <password>acflin30</password>
         </security>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
